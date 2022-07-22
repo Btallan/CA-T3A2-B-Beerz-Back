@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Byron Bay Larger",
+        "title": "As sublte as a hippe in the bay!",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce iaculis fermentum feugiat. Curabitur erat velit, porttitor vel turpis eu, faucibus pellentesque purus. Aliquam erat volutpat. Ut vulputate in est eget suscipit. Fusce ex urna, hendrerit id ex quis, aliquam pharetra velit. Donec faucibus egestas dignissim. Donec venenatis vestibulum laoreet. Fusce.",
+        "productIMG": "https://media.danmurphys.com.au/dmo/product/60281-1.png?impolicy=PROD_LG",
+        "tags": "1,3,5",
+        "price": "29.95",
+        "processIMG": "https://cdn.shopify.com/s/files/1/0270/7000/5381/articles/Disjobel_Imagen_articulo_1.jpg?v=1645808562"
+    },
+    {
+        "id": 2,
+        "name": "Furphy Original Ale",
+        "title": "No furphy of how good it is!",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce iaculis fermentum feugiat. Curabitur erat velit, porttitor vel turpis eu, faucibus pellentesque purus. Aliquam erat volutpat. Ut vulputate in est eget suscipit. Fusce ex urna, hendrerit id ex quis, aliquam pharetra velit. Donec faucibus egestas dignissim. Donec venenatis vestibulum laoreet. Fusce.",
+        "productIMG": "https://media.danmurphys.com.au/dmo/product/601575-1.png?impolicy=PROD_LG",
+        "tags": "1,3,5",
+        "price": "29.95",
+        "processIMG": "https://cdn.shopify.com/s/files/1/0270/7000/5381/articles/Disjobel_Imagen_articulo_1.jpg?v=1645808562"
+    }
+]
