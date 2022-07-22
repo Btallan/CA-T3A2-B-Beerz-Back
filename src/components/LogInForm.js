@@ -1,5 +1,7 @@
 import {useState} from 'react'
 import { useGlobalState } from '../utils/stateContext'
+import {useNavigate} from 'react-router-dom'
+
 
 
 const LogIn = () => {
@@ -14,6 +16,8 @@ const LogIn = () => {
     // Calling dispatch into the component, so that we can update the global state
     const {dispatch} = useGlobalState();
 
+    const navigate = useNavigate()
+
     // Handling the submission of the form
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -23,6 +27,7 @@ const LogIn = () => {
             type: "setLoggedInUser",
             data: formData.username
         })
+        navigate('/')
         setFormData(initialLogInData)
     }
 

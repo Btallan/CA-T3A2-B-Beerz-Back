@@ -15,6 +15,8 @@ import Navigation from './components/Navigation'
 import About from './components/About'
 import NotFound from './components/NotFound'
 import Footer from './components/Footer'
+import ProtectedRoute from './components/ProtectedRoute'
+import VerificationNavigation from './components/VerificationNavigation'
 
 // Import Data
 import initialProductList from './data/product-list.json'
@@ -50,24 +52,34 @@ const App = () => {
     <div >      
         <StateContext.Provider value={{store,dispatch}}>          
           <Router>
-            <Navigation />            
+
+            {!ageVerification ? 
+              <VerificationNavigation />
+            :
+              <Navigation />
+            }       
+                   
             <Routes>
               {/* Age verification loads initially, if this is true then homepage loads */}
-              {/* <Route path='/' element={
-                !ageVerification ?                
-                  <AgeVerification />
-                :
-                  <Home />
-              }/> */}
 
-              <Route path='/' element={<Home />} />
-              <Route path='/signup' element={<SignUp />} />
+              {/* Routes open to the public */}
+              <Route path='/verification' element={<AgeVerification />} />
               <Route path='/login' element={<LogIn />} />
-              
-              <Route path='/products' element={<Products />} />
-              <Route path='/products/:id' element={<ProductDetails />} />
-              <Route path='/user' element={<UserProfile />} />
               <Route path="/about" element={<About />} />
+
+              {/* Routes available after age verification */}
+              <Route element={<ProtectedRoute ageVerification={ageVerification}/>}> 
+                <Route path='/' element={<Home />} />
+                <Route path='/signup' element={<SignUp />} />
+                <Route path='/products' element={<Products />} />
+                <Route path='/products/:id' element={<ProductDetails />} />
+              </Route>
+
+              {/* Routes where you need to be a user */}
+              <Route element={<ProtectedRoute ageVerification={ageVerification}/>}> 
+                <Route path='/user' element={<UserProfile />} />
+              </Route>
+              
               {/* Use the '*' to redirect all other routes to the NotFound component */}
               <Route path="*" element={<NotFound />} />
               

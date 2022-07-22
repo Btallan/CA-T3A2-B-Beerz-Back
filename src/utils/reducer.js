@@ -26,6 +26,21 @@ const reducer = (state, action) => {
                 ageVerification: action.data
             }
         }
+        case "signUserUp": {
+            // update the loggedInUser value
+            return { 
+                ...state, 
+                firstName: action.data.firstName,
+                lastName: action.data.lastName,
+                email: action.data.email,
+                username: action.data.username,
+                password: action.data.password,
+                passwordConfirmation: action.data.passwordConfirmation,
+                dob: action.data.dob,
+                mobile: action.data.mobile,
+                loggedInUser: action.data.username
+            }
+        }
         case "setProductList": {
             // update the loggedInUser value
             return { 

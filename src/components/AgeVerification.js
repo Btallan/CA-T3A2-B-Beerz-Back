@@ -1,10 +1,14 @@
 import { useGlobalState } from '../utils/stateContext'
+import {useNavigate} from 'react-router-dom'
+
 
 
 const AgeVerification = () => {
         // Calling dispatch into the component, so that we can update the global state
         const {dispatch} = useGlobalState();
         // const {ageVerification} = store
+
+        const navigate = useNavigate();
 
         const updateAgeVerification = (event) => {
             event.preventDefault();
@@ -13,6 +17,7 @@ const AgeVerification = () => {
                     type: 'setAgeVerification',
                     data: true
                 })
+                navigate('/')
             } else {
                 dispatch({
                     type: 'setAgeVerification',
