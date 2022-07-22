@@ -2,8 +2,6 @@ import {useState} from 'react'
 import { useGlobalState } from '../utils/stateContext'
 import {useNavigate} from 'react-router-dom'
 
-
-
 const LogIn = () => {
     const initialLogInData = {
         username: "",
@@ -14,7 +12,9 @@ const LogIn = () => {
     const [formData, setFormData] = useState(initialLogInData)
 
     // Calling dispatch into the component, so that we can update the global state
-    const {dispatch} = useGlobalState();
+    const {store, dispatch} = useGlobalState();
+
+    const {userList} = store
 
     const navigate = useNavigate()
 
@@ -22,12 +22,16 @@ const LogIn = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log("Submit button clicked")
-        console.log(formData)
-        dispatch({
-            type: "setLoggedInUser",
-            data: formData.username
-        })
-        navigate('/')
+        const user = userList.find(user => user.username === formData.username)    
+        if(user.password === formData.password){
+            dispatch({
+                type: "setLoggedInUser",
+                data: user
+            })
+            navigate('/')
+        } else {
+            console.log('Does not match')
+        }        
         setFormData(initialLogInData)
     }
 

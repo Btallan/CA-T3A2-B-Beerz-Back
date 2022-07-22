@@ -10,7 +10,7 @@ const ProductDetails = () => {
 
     // Saving the params from URL
     const params = useParams();
-    console.log(params)
+    // console.log(params)
 
     const getProduct = (id) => {
         return productList.find(product => product.id === parseInt(id))
@@ -25,6 +25,10 @@ const ProductDetails = () => {
             <h4>{product.title}</h4>
             <p>{product.description}</p>
             <p>{product.price}</p>
+            <h4>Brewing Process</h4>
+            <img alt="Product IMG" src={product.processIMG} style={{height: "200px"}}></img>
+            <h4>Reviews</h4>
+
         </>
     )
 }

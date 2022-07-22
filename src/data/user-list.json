@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "firstName": "Ben",
+        "lastName": "Allan",
+        "email": "ben@email.com",
+        "mobile": "0488547788",
+        "username": "btallan",
+        "dob": "29/10/1995",
+        "password": "123456"
+    },
+    {
+        "id": 2,
+        "firstName": "Lachlan",
+        "lastName": "Brasell",
+        "email": "lachlan@email.com",
+        "mobile": "0455669988",
+        "username": "lbrasell",
+        "dob": "07/10/1995",
+        "password": "123456"
+    }
+]

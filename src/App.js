@@ -20,6 +20,7 @@ import VerificationNavigation from './components/VerificationNavigation'
 
 // Import Data
 import initialProductList from './data/product-list.json'
+import initialUserList from './data/user-list.json'
 
 // Import reducer
 import reducer from './utils/reducer'
@@ -46,10 +47,15 @@ const App = () => {
       type: 'setProductList',
       data: initialProductList
     })
+    dispatch({
+      type: 'setUserList',
+      data: initialUserList
+    })
   },[])
 
   return (
-    <div >      
+    <div >
+        {console.log(loggedInUser)}      
         <StateContext.Provider value={{store,dispatch}}>          
           <Router>
 

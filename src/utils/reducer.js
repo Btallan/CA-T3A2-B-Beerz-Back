@@ -1,7 +1,7 @@
 // App reducer file
 const reducer = (state, action) => {
-    console.log(state)
-    console.log(action)
+    // console.log(state)
+    // console.log(action)
 
     switch(action.type){
         case "cleanState": {
@@ -26,19 +26,18 @@ const reducer = (state, action) => {
                 ageVerification: action.data
             }
         }
+        case "setUserList": {
+            // update the loggedInUser value
+            return { 
+                ...state, 
+                userList: action.data
+            }
+        }
         case "signUserUp": {
             // update the loggedInUser value
             return { 
                 ...state, 
-                firstName: action.data.firstName,
-                lastName: action.data.lastName,
-                email: action.data.email,
-                username: action.data.username,
-                password: action.data.password,
-                passwordConfirmation: action.data.passwordConfirmation,
-                dob: action.data.dob,
-                mobile: action.data.mobile,
-                loggedInUser: action.data.username
+                loggedInUser: action.data
             }
         }
         case "setProductList": {

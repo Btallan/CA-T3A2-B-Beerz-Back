@@ -5,19 +5,19 @@ const UserProfile = () => {
     const {store} = useGlobalState()
 
     // Unpacking the store
-    const {firstName, lastName, email, mobile, username, dob, password, passwordConfirmation} = store
+    const {loggedInUser} = store
 
     return (
         <>
             <h1>View user profile!</h1>
-            <p>{firstName}</p>
-            <p>{lastName}</p>
-            <p>{email}</p>
-            <p>{mobile}</p>
-            <p>{username}</p>
-            <p>{dob}</p>
-            <p>{password}</p>
-            <p>{passwordConfirmation}</p>
+            <p>{loggedInUser.firstName}</p>
+            <p>{loggedInUser.lastName}</p>
+            <p>{loggedInUser.email}</p>
+            <p>{loggedInUser.mobile}</p>
+            <p>{loggedInUser.username}</p>
+            <p>{loggedInUser.dob}</p>
+            <p>{loggedInUser.password}</p>
+            <p>{loggedInUser.passwordConfirmation}</p>
         </>
     )
 }
