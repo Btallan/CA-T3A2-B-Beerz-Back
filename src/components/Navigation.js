@@ -23,7 +23,7 @@ const Navigation = () =>{
     return(
         <nav>
             {/* Links prevent a re-render of the page */}
-            <Link to="/home">Home</Link>            
+            <Link to="/">Home</Link>            
             <Link to="/products">Products</Link>  
             <Link to="/about">About</Link>     
             {/* <Link to="/signup">Sign Up</Link>     

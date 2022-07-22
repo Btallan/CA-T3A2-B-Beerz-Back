@@ -14,6 +14,7 @@ import LogIn from './components/LogInForm'
 import Navigation from './components/Navigation'
 import About from './components/About'
 import NotFound from './components/NotFound'
+import Footer from './components/Footer'
 
 // Import Data
 import initialProductList from './data/product-list.json'
@@ -28,11 +29,14 @@ const App = () => {
   // Set initial states
   const initialState = {
     loggedInUser: "",
-    ageVerification: false
+    ageVerification: ""
   }
 
   // Initialising the reducer
   const [store, dispatch] = useReducer(reducer, initialState)
+
+  // Unpacking the store
+  const {loggedInUser, ageVerification} = store
 
   // Initialising the data which must be present on load
   useEffect(() => {
@@ -43,23 +47,32 @@ const App = () => {
   },[])
 
   return (
-    <div >
-        <StateContext.Provider value={{store,dispatch}}>
+    <div >      
+        <StateContext.Provider value={{store,dispatch}}>          
           <Router>
-            <Navigation />
+            <Navigation />            
             <Routes>
-              <Route path='/' element={<AgeVerification />} />
+              {/* Age verification loads initially, if this is true then homepage loads */}
+              {/* <Route path='/' element={
+                !ageVerification ?                
+                  <AgeVerification />
+                :
+                  <Home />
+              }/> */}
+
+              <Route path='/' element={<Home />} />
               <Route path='/signup' element={<SignUp />} />
               <Route path='/login' element={<LogIn />} />
-              <Route path='/home' element={<Home />} />
+              
               <Route path='/products' element={<Products />} />
               <Route path='/products/:id' element={<ProductDetails />} />
               <Route path='/user' element={<UserProfile />} />
               <Route path="/about" element={<About />} />
               {/* Use the '*' to redirect all other routes to the NotFound component */}
               <Route path="*" element={<NotFound />} />
-
+              
             </Routes>
+            <Footer />
           </Router>
         </StateContext.Provider>
     </div>
