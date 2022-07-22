@@ -33,6 +33,13 @@ const reducer = (state, action) => {
                 userList: action.data
             }
         }
+        case "setReviewList": {
+            // update the loggedInUser value
+            return { 
+                ...state, 
+                reviewList: action.data
+            }
+        }
         case "signUserUp": {
             // update the loggedInUser value
             return { 

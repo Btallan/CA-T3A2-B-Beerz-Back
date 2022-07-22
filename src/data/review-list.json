@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "userID": 1,
+        "productID": 1,
+        "headline": "This was amazing!",
+        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lectus id volutpat tincidunt. In hac habitasse platea dictumst. Praesent in tellus fringilla, vulputate sapien.",
+        "rating": "5",
+        "dateCreated": "22/07/2022",
+        "dateEditted": "22/07/2022"
+    },
+    {
+        "id": 2,
+        "userID": 2,
+        "productID": 1,
+        "headline": "OMG defintely recommend trying some!",
+        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lectus id volutpat tincidunt. In hac habitasse platea dictumst. Praesent in tellus fringilla, vulputate sapien.",
+        "rating": "5",
+        "dateCreated": "22/07/2022",
+        "dateEditted": "22/07/2022"
+    }
+]

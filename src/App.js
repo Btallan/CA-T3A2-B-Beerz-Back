@@ -21,6 +21,7 @@ import VerificationNavigation from './components/VerificationNavigation'
 // Import Data
 import initialProductList from './data/product-list.json'
 import initialUserList from './data/user-list.json'
+import initialReviewList from './data/review-list.json'
 
 // Import reducer
 import reducer from './utils/reducer'
@@ -50,6 +51,10 @@ const App = () => {
     dispatch({
       type: 'setUserList',
       data: initialUserList
+    })
+    dispatch({
+      type: 'setReviewList',
+      data: initialReviewList
     })
   },[])
 
