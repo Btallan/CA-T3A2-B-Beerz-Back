@@ -62,7 +62,7 @@ const AddReview = ({id}) => {
             dateEditted: Date(),
             id: nextID(reviewList)
         }
-        console.log(review)
+        // console.log(review)
         dispatch({
             type: "addReview",
             data: review

@@ -5,7 +5,7 @@
         "productID": 1,
         "headline": "This was amazing!",
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lectus id volutpat tincidunt. In hac habitasse platea dictumst. Praesent in tellus fringilla, vulputate sapien.",
-        "rating": "5",
+        "rating": 5,
         "dateCreated": "22/07/2022",
         "dateEditted": "22/07/2022"
     },
@@ -15,7 +15,7 @@
         "productID": 1,
         "headline": "OMG defintely recommend trying some!",
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat lectus id volutpat tincidunt. In hac habitasse platea dictumst. Praesent in tellus fringilla, vulputate sapien.",
-        "rating": "5",
+        "rating": 5,
         "dateCreated": "22/07/2022",
         "dateEditted": "22/07/2022"
     }
