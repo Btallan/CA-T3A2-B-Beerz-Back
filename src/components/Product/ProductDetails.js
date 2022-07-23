@@ -1,11 +1,13 @@
 import {useParams} from 'react-router-dom'
-import { useGlobalState } from '../utils/stateContext';
+import { useGlobalState } from '../../utils/stateContext';
 
 // Import components
 import Reviews from './Reviews'
 import ProductDescription from './ProductDescription';
 import ProductProcess from './ProductProcess'
-import { render } from '@testing-library/react';
+
+// import ProductTabs from './ProductTabs'
+
 
 
 const ProductDetails = () => {
@@ -24,25 +26,19 @@ const ProductDetails = () => {
 
     const product = getProduct(params.id)
 
-    var tabSelection = "Description"
+    // var tabSelection = "Description"
+    // var description = true
+    // var brewing = false
+    // var reviews = false
 
     // Handling the submission of the form
     const handleButton = (event) => {
-        event.preventDefault()
+        // event.preventDefault()
         // console.log(event.target.name)
-        tabSelection = event.target.name
-        console.log(tabSelection)
+        // tabSelection = event.target.name
+        // console.log(tabSelection)
     }
 
-    const renderedTab = () => {
-        if(tabSelection === 'brewing-process'){
-            return <ProductDescription product={product} />
-        } else if(tabSelection === 'reviews'){
-            return <Reviews productID={product.id} />
-        }else {
-            return <ProductDescription product={product} />
-        }
-    }
 
     return (
         <>
@@ -53,13 +49,15 @@ const ProductDetails = () => {
             <button onClick={handleButton} name="brewing-process" >Brewing Process</button>
             <button onClick={handleButton} name="reviews" >Reviews</button>
 
-            {/* {renderedTab()} */}
-            
-            <ProductDescription product={product} />
-            <ProductProcess product={product} />
-            <Reviews productID={product.id} />
+            {/* <ProductTabs product={product} tabSelection={tabSelection} /> */}
+
+            <ProductDescription product={product}/>
+            <ProductProcess product={product}/>
+            <Reviews product={product}/>
+
         </>
     )
+
 
 
 

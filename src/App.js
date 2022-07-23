@@ -6,8 +6,8 @@ import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 // Import components
 import AgeVerification from './components/AgeVerification'
 import Home from './components/Home'
-import Products from './components/Products'
-import ProductDetails from './components/ProductDetails'
+import Products from './components/Product/Products'
+import ProductDetails from './components/Product/ProductDetails'
 import UserProfile from './components/UserProfile'
 import SignUp from './components/SignUpForm'
 import LogIn from './components/LogInForm'
@@ -17,6 +17,7 @@ import NotFound from './components/NotFound'
 import Footer from './components/Footer'
 import ProtectedRoute from './components/ProtectedRoute'
 import VerificationNavigation from './components/VerificationNavigation'
+import AddReview from './components/Product/AddReview'
 
 // Import Data
 import initialProductList from './data/product-list.json'
@@ -40,7 +41,7 @@ const App = () => {
   const [store, dispatch] = useReducer(reducer, initialState)
 
   // Unpacking the store
-  const {loggedInUser, ageVerification} = store
+  const {ageVerification} = store
 
   // Initialising the data which must be present on load
   useEffect(() => {
@@ -60,7 +61,7 @@ const App = () => {
 
   return (
     <div >
-        {console.log(loggedInUser)}      
+        {/* {console.log(loggedInUser)}       */}
         <StateContext.Provider value={{store,dispatch}}>          
           <Router>
 
@@ -89,6 +90,7 @@ const App = () => {
               {/* Routes where you need to be a user */}
               <Route element={<ProtectedRoute ageVerification={ageVerification}/>}> 
                 <Route path='/user' element={<UserProfile />} />
+                <Route path='/add-review/:id' element={<AddReview/>} ></Route>
               </Route>
               
               {/* Use the '*' to redirect all other routes to the NotFound component */}
