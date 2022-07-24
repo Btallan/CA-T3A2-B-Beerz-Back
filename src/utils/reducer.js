@@ -40,6 +40,27 @@ const reducer = (state, action) => {
                 reviewList: action.data
             }
         }
+        case "setEventList": {
+            // update the loggedInUser value
+            return { 
+                ...state, 
+                eventList: action.data
+            }
+        }
+        case "setBookingList": {
+            // update the loggedInUser value
+            return { 
+                ...state, 
+                bookingList: action.data
+            }
+        }
+        case "addBooking": {
+            // update the loggedInUser value
+            return { 
+                ...state, 
+                bookingList: [action.data, ...state.bookingList]
+            }
+        }
         case "signUserUp": {
             // update the loggedInUser value
             return { 

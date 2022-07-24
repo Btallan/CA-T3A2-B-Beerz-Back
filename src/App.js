@@ -3,12 +3,10 @@ import React, {useEffect, useReducer} from 'react'
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 
-// Import components
+// Import misc components
 import AgeVerification from './components/AgeVerification'
 import Home from './components/Home'
-import Products from './components/Product/Products'
-import ProductDetails from './components/Product/ProductDetails'
-import UserProfile from './components/UserProfile'
+import UserProfile from './components/User/UserProfile'
 import SignUp from './components/SignUpForm'
 import LogIn from './components/LogInForm'
 import Navigation from './components/Navigation'
@@ -17,12 +15,23 @@ import NotFound from './components/NotFound'
 import Footer from './components/Footer'
 import ProtectedRoute from './components/ProtectedRoute'
 import VerificationNavigation from './components/VerificationNavigation'
+
+// Import products components
+import Products from './components/Product/Products'
+import ProductDetails from './components/Product/ProductDetails'
 import AddReview from './components/Product/AddReview'
+
+// Import event components
+import EventDetails from './components/Event/EventDetails'
+
+
 
 // Import Data
 import initialProductList from './data/product-list.json'
 import initialUserList from './data/user-list.json'
 import initialReviewList from './data/review-list.json'
+import initialEventList from './data/event-list.json'
+import initialBookingList from './data/booking-list.json'
 
 // Import reducer
 import reducer from './utils/reducer'
@@ -45,18 +54,33 @@ const App = () => {
 
   // Initialising the data which must be present on load
   useEffect(() => {
+    // Importing the products list
     dispatch({
       type: 'setProductList',
       data: initialProductList
     })
+    // Importing the users list
     dispatch({
       type: 'setUserList',
       data: initialUserList
     })
+    // Importing the reviews list
     dispatch({
       type: 'setReviewList',
       data: initialReviewList
     })
+    // Importing the events list
+    dispatch({
+      type: 'setEventList',
+      data: initialEventList
+    })
+    // Importing the bookings list
+    dispatch({
+      type: 'setBookingList',
+      data: initialBookingList
+    })
+    // console.log(initialBookingList)
+    // console.log(initialReviewList)
   },[])
 
   return (
@@ -85,6 +109,7 @@ const App = () => {
                 <Route path='/signup' element={<SignUp />} />
                 <Route path='/products' element={<Products />} />
                 <Route path='/products/:id' element={<ProductDetails />} />
+                <Route path='/events/:id' element={<EventDetails />} />
               </Route>
 
               {/* Routes where you need to be a user */}

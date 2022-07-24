@@ -1,4 +1,4 @@
-import { useGlobalState } from '../utils/stateContext';
+import { useGlobalState } from '../../utils/stateContext';
 
 const UserProfile = () => {
     // Calling the store into the component through global state

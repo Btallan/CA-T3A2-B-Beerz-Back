@@ -8,7 +8,7 @@ const Review = ({review}) => {
     const {userList} = store
     
     const foundUser = userList.find(user => user.id === review.userID)
-
+    console.log(review)
     return (
         <>
             <h4>{review.headline}</h4>
