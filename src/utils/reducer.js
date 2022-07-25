@@ -11,6 +11,9 @@ const reducer = (state, action) => {
                 ageVerification: false
             }
         }
+        //
+        // User Reducers
+        //
         case "setLoggedInUser": {
             // update the loggedInUser value
             return { 
@@ -26,6 +29,24 @@ const reducer = (state, action) => {
                 ageVerification: action.data
             }
         }
+        case "signUserUp": {
+            // update the loggedInUser value
+            return { 
+                ...state, 
+                loggedInUser: action.data
+            }
+        }
+        case "updateUser": {
+            // update the loggedInUser value
+            return { 
+                ...state, 
+                loggedInUser: action.data
+            }
+        }
+        
+        //
+        // Set Lists
+        //
         case "setUserList": {
             // update the loggedInUser value
             return { 
@@ -54,20 +75,6 @@ const reducer = (state, action) => {
                 bookingList: action.data
             }
         }
-        case "addBooking": {
-            // update the loggedInUser value
-            return { 
-                ...state, 
-                bookingList: [action.data, ...state.bookingList]
-            }
-        }
-        case "signUserUp": {
-            // update the loggedInUser value
-            return { 
-                ...state, 
-                loggedInUser: action.data
-            }
-        }
         case "setProductList": {
             // update the loggedInUser value
             return { 
@@ -75,6 +82,19 @@ const reducer = (state, action) => {
                 productList: action.data
             }
         }
+        //
+        // Event and Booking reducers
+        //
+        case "addBooking": {
+            // update the loggedInUser value
+            return { 
+                ...state, 
+                bookingList: [action.data, ...state.bookingList]
+            }
+        }
+        //
+        // Product and Reviews reducers
+        //
         case "addReview": {
             // add review to the list
             return { 

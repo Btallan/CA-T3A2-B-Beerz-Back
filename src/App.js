@@ -24,6 +24,9 @@ import AddReview from './components/Product/AddReview'
 // Import event components
 import EventDetails from './components/Event/EventDetails'
 
+// Import User components
+import EditUserProfile from './components/User/EditUserProfile'
+
 
 
 // Import Data
@@ -114,7 +117,8 @@ const App = () => {
 
               {/* Routes where you need to be a user */}
               <Route element={<ProtectedRoute ageVerification={ageVerification}/>}> 
-                <Route path='/user' element={<UserProfile />} />
+                <Route path='/:username' element={<UserProfile />} />
+                <Route path='/:username/edit' element={<EditUserProfile />} />
                 <Route path='/add-review/:id' element={<AddReview/>} ></Route>
               </Route>
               

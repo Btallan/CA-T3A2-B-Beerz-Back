@@ -37,7 +37,7 @@ const Navigation = () =>{
             
             {!loggedInUser && <Link to="/login">Log In</Link>}
 
-            {loggedInUser && <Link to="/user" >User</Link>}                     
+            {loggedInUser && <Link to={`/${loggedInUser.username}`} >User</Link>}                     
             {loggedInUser && <Link to="/" onClick={logout}>Log Out</Link>}                     
         </nav>
     )
