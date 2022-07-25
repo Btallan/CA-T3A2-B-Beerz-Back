@@ -2,7 +2,7 @@
 // import { useGlobalState } from '../utils/stateContext';
 
 // Import products components
-import Products from '../components/Product/Products'
+// import Products from '../components/Product/Products'
 
 // Import events components
 import Events from '../components/Event/Events'
