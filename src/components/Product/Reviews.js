@@ -17,23 +17,31 @@ const Reviews = ({product}) => {
 
     // FUnction to return the overall rating
     const getOverallRating = (productReviews) => {
-        var overall = 0
-        const numberReviews = productReviews.length
-        productReviews.map(review =>
-            overall += review.rating
-        )
+       var ratingArray = []
+        const numberReviews = productReviews.length    
 
-        if(overall === 0){
+        productReviews.forEach(review =>
+            ratingArray.push(parseInt(review.rating))
+        )
+        
+        var totalScore = ratingArray.reduce((a,b) => a +b, 0)
+        var average = totalScore / numberReviews
+
+        if(average === 0){
             return <p>Product has not yet been reviewed</p>
         } else {
-            return overall / numberReviews
+            // console.log(productReviews)
+            // console.log(ratingArray)
+            // console.log(totalScore)
+            // console.log(average)
+            return average.toFixed(1)
         }
     }
     
     return (
         <>
             <h4>Reviews</h4>
-            <p>Overall Rating: {getOverallRating(productReviews)}</p>
+            <p>Average Rating: {getOverallRating(productReviews)}</p>
             {loggedInUser && <Link to={`/add-review/${product.id}`}>Add a review!</Link>}
             <hr></hr>
             {productReviews.map(review =>

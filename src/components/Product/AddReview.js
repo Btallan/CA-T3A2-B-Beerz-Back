@@ -57,7 +57,7 @@ const AddReview = ({id}) => {
             comment: formData.comment,
             rating: formData.rating,
             productID: parseInt(params.id),
-            userID: parseInt(loggedInUser.id),
+            userID: loggedInUser.id,
             dateCreated: Date(),
             dateEditted: Date(),
             id: nextID(reviewList)
