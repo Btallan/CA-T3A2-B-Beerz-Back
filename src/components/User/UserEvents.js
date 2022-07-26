@@ -17,19 +17,27 @@ const UserEvents = () => {
         } 
     });
 
-        // console.log(eventList)
+    // console.log(eventList)
     // console.log(loggedInUser)
     // console.log(userBookings)
 
+    var activeEvents = userBookings.some(booking => booking.status === true)
 
+    // console.log(activeEvents)
 
     return (
         <>
-            <h1>My Upcoming Events</h1>
-            {/* Only show bookings which have not been cancelled */}
-            {userBookings.map(booking => 
-                !booking.status ? null :    <UserBooking key={booking.id} booking={booking}/> 
-            )}
+            {activeEvents? 
+                <>
+                    <h1>My Upcoming Events</h1>
+                    {/* Only show bookings which have not been cancelled */}
+                    {userBookings.map(booking => 
+                    !booking.status ? null :    <UserBooking key={booking.id} booking={booking}/> 
+                    )}
+                </>
+            :
+                    null
+            }
 
         </>
     )

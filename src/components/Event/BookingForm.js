@@ -1,4 +1,5 @@
 // Import context
+import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../../utils/stateContext';
 
 
@@ -6,6 +7,8 @@ const BookingForm = ({event}) => {
     // Calling in dispatch
     const {store, dispatch} = useGlobalState()
     const {loggedInUser, bookingList} = store
+
+    const navigate = useNavigate()
 
 
     // Handle submit of form
@@ -29,6 +32,7 @@ const BookingForm = ({event}) => {
             type: "addBooking",
             data: bookingInfo
         })
+        navigate(`/${loggedInUser.username}`)
     }
 
     function nextID(data){
