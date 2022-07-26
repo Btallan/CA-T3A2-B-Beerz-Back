@@ -43,6 +43,13 @@ const reducer = (state, action) => {
                 loggedInUser: action.data
             }
         }
+        case "updateUserFlavourTags": {
+            // update the loggedInUser value
+            return { 
+                ...state, 
+                flavourTags: action.data
+            }
+        }
         
         //
         // Set Lists
@@ -80,6 +87,13 @@ const reducer = (state, action) => {
             return { 
                 ...state, 
                 productList: action.data
+            }
+        }
+        case "setTagList": {
+            // update the loggedInUser value
+            return { 
+                ...state, 
+                tagList: action.data
             }
         }
         //

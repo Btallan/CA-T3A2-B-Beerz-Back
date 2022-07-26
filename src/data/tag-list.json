@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "tag": "Light"
+    },
+    {
+        "id": 2,
+        "tag": "Dark"
+    },
+    {
+        "id": 3,
+        "tag": "Dry"
+    },
+    {
+        "id": 4,
+        "tag": "Bitter"
+    },
+    {
+        "id": 5,
+        "tag": "Ales"
+    },
+    {
+        "id": 6,
+        "tag": "Stout"
+    },
+    {
+        "id": 7,
+        "tag": "Larger"
+    },
+    {
+        "id": 8,
+        "tag": "Cider"
+    },
+    {
+        "id": 9,
+        "tag": "IPAs"
+    }
+]
