@@ -36,6 +36,7 @@ import initialReviewList from './data/review-list.json'
 import initialEventList from './data/event-list.json'
 import initialBookingList from './data/booking-list.json'
 import initialTagList from './data/tag-list.json'
+import initialOrderList from './data/order-list.json'
 
 // Import reducer
 import reducer from './utils/reducer'
@@ -87,6 +88,11 @@ const App = () => {
     dispatch({
       type: 'setTagList',
       data: initialTagList
+    })
+    // Importing the orders list
+    dispatch({
+      type: 'setOrderList',
+      data: initialOrderList
     })
     // console.log(initialBookingList)
     // console.log(initialReviewList)

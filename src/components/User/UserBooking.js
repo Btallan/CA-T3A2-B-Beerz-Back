@@ -39,7 +39,7 @@ const UserBooking = ({booking}) => {
             <img alt="Event" src={selectedEvent.eventIMG} style={{width: "200px"}}></img>
             <p>{selectedEvent.time} - {selectedEvent.date}</p>
             <p>Tickets booked: {booking.quantity}</p>
-            <p>Status: {booking.status ? "Upcoming " : "Cancelled"}lol</p>
+            <p>Status: {booking.status ? "Upcoming " : "Cancelled"}</p>
             <button onClick={cancelBooking}>Cancel Booking</button>
             <button>Contact Brewery</button>
             <hr></hr>  

@@ -96,6 +96,13 @@ const reducer = (state, action) => {
                 tagList: action.data
             }
         }
+        case "setOrderList": {
+            // update the loggedInUser value
+            return { 
+                ...state, 
+                orderList: action.data
+            }
+        }
         //
         // Event and Booking reducers
         //

@@ -12,7 +12,7 @@ const UserTags = () => {
     // Function which is actioned for each item that the user selects
     // This will either add the tag or remove the tag
     var userFlavourTags = loggedInUser.flavourTags
-    console.log(userFlavourTags)
+    // console.log(userFlavourTags)
     const onClick = (event) => {
         // console.log(event.target.value)
         const flavourID = event.target.value
