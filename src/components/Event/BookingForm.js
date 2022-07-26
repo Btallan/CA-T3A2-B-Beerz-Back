@@ -22,7 +22,8 @@ const BookingForm = ({event}) => {
             id: nextID(bookingList),
             eventID: event.id,
             userID: loggedInUser.id,
-            quantity: quantity
+            quantity: parseInt(quantity),
+            status: true
         }
         dispatch({
             type: "addBooking",

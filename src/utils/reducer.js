@@ -92,6 +92,19 @@ const reducer = (state, action) => {
                 bookingList: [action.data, ...state.bookingList]
             }
         }
+        case "updateBooking": {
+            // update the loggedInUser value
+            // Find the index of the received booking
+            let index = state.bookingList.findIndex(booking => booking.id === action.data.id)
+            // Save the existing bookings to a variable
+            let bookings = [...state.bookingList]
+            // Update the booking based upon its ID
+            bookings[index]['status'] = false
+            // return the state
+            return {
+                ...state, bookings
+            }
+        }
         //
         // Product and Reviews reducers
         //
