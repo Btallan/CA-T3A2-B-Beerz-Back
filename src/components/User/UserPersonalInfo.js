@@ -19,6 +19,7 @@ const UserProfile = () => {
             <p>{loggedInUser.mobile}</p>
             <p>{loggedInUser.username}</p>
             <p>{loggedInUser.dob}</p>
+            <p>{loggedInUser.address}</p>
             <p>{loggedInUser.password}</p>
             <p>{loggedInUser.passwordConfirmation}</p>
             <Link to={`/${loggedInUser.username}/edit`}>Edit Profile</Link>

@@ -14,10 +14,12 @@ const EditUserProfile = ({user}) => {
         email: loggedInUser.email,
         mobile: loggedInUser.mobile,
         username: loggedInUser.username,
+        address: loggedInUser.address,
         dob: loggedInUser.dob,
         password: loggedInUser.password,
         passwordConfirmation: loggedInUser.passwordConfirmation,
-        profileIMG: loggedInUser.profileIMG
+        profileIMG: loggedInUser.profileIMG,
+        flavourTags: loggedInUser.flavourTags
     }
 
     const [formData, setFormData] = useState(intialFormData)
@@ -76,10 +78,10 @@ const EditUserProfile = ({user}) => {
                     <label>Mobile</label>
                     <input type="text" name="mobile" id="mobile" value={formData.mobile} onChange={handleFormData}></input>
                 </div>
-                {/* <div>
-                    <label>Username</label>
-                    <input type="text" name="username" id="username" defaultValue={loggedInUser.username} onChange={handleFormData}></input>
-                </div> */}
+                <div>
+                    <label>Address</label>
+                    <input type="text" name="address" id="address" defaultValue={loggedInUser.address} onChange={handleFormData}></input>
+                </div>
                 <div>
                     <label>Date of Birth</label>
                     <input type="text" name="dob" id="dob" value={formData.dob} onChange={handleFormData}></input>
@@ -91,7 +93,7 @@ const EditUserProfile = ({user}) => {
                     <label>Password Confirmation</label>
                     <input type="password" name="passwordConfirmation" id="passwordConfirmation" value={formData.passwordConfirmation} onChange={handleFormData}></input>
                 </div>
-                <input type="submit" value="Sign Up" />
+                <input type="submit" value="Edit" />
 
             </form>
         </>
