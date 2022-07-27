@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "userID": 1,
+        "firstName": "Ben",
+        "lastName": "Allan",
+        "email": "ben@email.com",
+        "mobile": "0488547788",
+        "message": "Initial message"
+    }
+]

@@ -103,6 +103,13 @@ const reducer = (state, action) => {
                 orderList: action.data
             }
         }
+        case "setContactMessageList": {
+            // update the loggedInUser value
+            return { 
+                ...state, 
+                contactMessageList: action.data
+            }
+        }
         //
         // Event and Booking reducers
         //
@@ -143,6 +150,17 @@ const reducer = (state, action) => {
                 orderList: [action.data, ...state.orderList]
             }
         }
+        //
+        // MISC reducers
+        //
+        case "addContactMessage": {
+            // add review to the list
+            return { 
+                ...state, 
+                contactMessageList: [action.data, ...state.contactMessageList]
+            }
+        }
+        
         default: return state
     }
 

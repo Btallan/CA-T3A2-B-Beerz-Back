@@ -15,6 +15,7 @@ import NotFound from './components/NotFound'
 import Footer from './components/Footer'
 import ProtectedRoute from './components/ProtectedRoute'
 import VerificationNavigation from './components/VerificationNavigation'
+import ContactUs from './components/ContactUs'
 
 // Import products components
 import Products from './components/Product/Products'
@@ -37,6 +38,7 @@ import initialEventList from './data/event-list.json'
 import initialBookingList from './data/booking-list.json'
 import initialTagList from './data/tag-list.json'
 import initialOrderList from './data/order-list.json'
+import initialContactMessageList from './data/contactMessages-list.json'
 
 // Import reducer
 import reducer from './utils/reducer'
@@ -94,6 +96,11 @@ const App = () => {
       type: 'setOrderList',
       data: initialOrderList
     })
+    // Importing the contact message list
+    dispatch({
+      type: 'setContactMessageList',
+      data: initialContactMessageList
+    })
     // console.log(initialBookingList)
     // console.log(initialReviewList)
   },[])
@@ -117,6 +124,7 @@ const App = () => {
               <Route path='/verification' element={<AgeVerification />} />
               <Route path='/login' element={<LogIn />} />
               <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<ContactUs />} />
 
               {/* Routes available after age verification */}
               <Route element={<ProtectedRoute ageVerification={ageVerification}/>}> 
