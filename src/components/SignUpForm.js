@@ -1,5 +1,5 @@
 import {useState} from 'react'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
 
 const SignUp = () => {
@@ -20,6 +20,9 @@ const SignUp = () => {
 
     // Calling dispatch into the component, so that we can update the global state
     const {dispatch} = useGlobalState();
+    
+    // Initialising and storing naiagte in a variable
+    const navigate = useNavigate()
 
     // Handling the submission of the form
     const handleSubmit = (event) => {
@@ -31,6 +34,7 @@ const SignUp = () => {
             data: formData
         })
         setFormData(initialSignUpData)
+        navigate('/')
     }
 
     // Handling the form data as the user enter keystrokes
