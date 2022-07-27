@@ -33,7 +33,8 @@ const reducer = (state, action) => {
             // update the loggedInUser value
             return { 
                 ...state, 
-                loggedInUser: action.data
+                loggedInUser: action.data,
+                userList: [...state.userList, action.data]
             }
         }
         case "updateUser": {

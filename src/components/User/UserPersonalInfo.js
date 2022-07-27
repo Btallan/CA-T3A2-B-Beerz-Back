@@ -2,6 +2,7 @@ import { useGlobalState } from '../../utils/stateContext';
 import { Link } from 'react-router-dom';
 
 
+
 const UserProfile = () => {
     // Calling the store into the component through global state
     const {store} = useGlobalState()
@@ -12,7 +13,11 @@ const UserProfile = () => {
     return (
         <>
             <h1>View user profile!</h1>
-            <img alt="Profile" src={loggedInUser.profileIMG} style={{width: "100px"}}/>           
+            {loggedInUser.profileIMG ?
+                    <img alt="Profile" src={loggedInUser.profileIMG} style={{width: "100px"}}/>
+                :
+                <img alt="Profile" src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png' style={{width: "100px"}}/>
+            }           
             <p>{loggedInUser.firstName}</p>
             <p>{loggedInUser.lastName}</p>
             <p>{loggedInUser.email}</p>

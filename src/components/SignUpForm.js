@@ -1,9 +1,9 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
 
 const SignUp = () => {
-    const initialSignUpData = {
+    const initialSignUpData = {        
         firstName: "",
         lastName: "",
         email: "",
@@ -12,15 +12,18 @@ const SignUp = () => {
         dob: "",
         password: "",
         passwordConfirmation: "",
-        flavourTags: []
+        flavourTags: [],
+        address: ""
     }
 
     // Calling the state function
     const [formData, setFormData] = useState(initialSignUpData)
 
     // Calling dispatch into the component, so that we can update the global state
-    const {dispatch} = useGlobalState();
-    
+    const {store,dispatch} = useGlobalState();
+    const {userList} = store
+    useEffect(() => console.log(userList), [userList])
+
     // Initialising and storing naiagte in a variable
     const navigate = useNavigate()
 
@@ -41,9 +44,20 @@ const SignUp = () => {
     const handleFormData = (event) => {
         setFormData({
             ...formData,
+            id: nextID(userList),
             [event.target.name]: event.target.value
         })
         // console.log(formData)
+    }
+
+    function nextID(data){
+        // first exclude the empty case
+        if(data.length === 0) return ;
+
+        // second handle if data not empty
+        const sortData = data.sort((a,b) => a.id - b.id);
+        const nextID = sortData[sortData.length -1].id +1
+        return nextID 
     }
 
     return (
@@ -67,6 +81,10 @@ const SignUp = () => {
                 <div>
                     <label>Username</label>
                     <input type="text" name="username" id="username" value={formData.username} onChange={handleFormData}></input>
+                </div>
+                <div>
+                    <label>Address</label>
+                    <input type="text" name="address" id="address" value={formData.address} onChange={handleFormData}></input>
                 </div>
                 <div>
                     <label>Date of Birth</label>
