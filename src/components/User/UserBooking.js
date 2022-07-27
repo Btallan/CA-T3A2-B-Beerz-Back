@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../../utils/stateContext";
 // import { useState } from "react";
 
@@ -11,6 +12,8 @@ const UserBooking = ({booking}) => {
         // In the events array, find all events which match the event ID in the booking
         const selectedEvent = eventList.find(event => event.id === booking.eventID)
 
+        // Initialise navigate
+        const navigate = useNavigate()
 
         // console.log(booking)
         // console.log("----")
@@ -32,6 +35,9 @@ const UserBooking = ({booking}) => {
             }) 
         }
 
+        const contactBrewery = () => {
+            navigate(`/contact/events/${selectedEvent.id}`)
+        }
 
     return(
         <>
@@ -41,7 +47,7 @@ const UserBooking = ({booking}) => {
             <p>Tickets booked: {booking.quantity}</p>
             <p>Status: {booking.status ? "Upcoming " : "Cancelled"}</p>
             <button onClick={cancelBooking}>Cancel Booking</button>
-            <button>Contact Brewery</button>
+            <button onClick={contactBrewery} >Contact Brewery</button>
             <hr></hr>  
         </>
     )

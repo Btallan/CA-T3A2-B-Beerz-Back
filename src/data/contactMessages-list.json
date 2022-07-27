@@ -1,6 +1,8 @@
 [
     {
         "id": 1,
+        "matter": "Enquiry",
+        "matterID": 1,
         "userID": 1,
         "firstName": "Ben",
         "lastName": "Allan",

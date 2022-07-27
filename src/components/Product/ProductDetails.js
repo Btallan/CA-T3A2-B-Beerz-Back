@@ -15,7 +15,7 @@ const ProductDetails = () => {
     // Calling the store into the component through global state
     const {store} = useGlobalState()
     // Unpacking the store
-    const {productList} = store
+    const {productList, loggedInUser} = store
 
     // Saving the params from URL
     const params = useParams();
@@ -58,7 +58,11 @@ const ProductDetails = () => {
 
             
             {/* Purchasing Component */}
-            <PurchaseProduct product={product}/>
+            {loggedInUser ?
+                    <PurchaseProduct product={product}/>
+                :
+                    null
+            }
 
         </>
     )

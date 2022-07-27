@@ -124,7 +124,7 @@ const App = () => {
               <Route path='/verification' element={<AgeVerification />} />
               <Route path='/login' element={<LogIn />} />
               <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<ContactUs />} />
+              <Route path="/contact/*" element={<ContactUs />} />
 
               {/* Routes available after age verification */}
               <Route element={<ProtectedRoute ageVerification={ageVerification}/>}> 

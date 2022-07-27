@@ -1,5 +1,5 @@
 import { useGlobalState } from "../utils/stateContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 const ContactUs = () => {
@@ -9,8 +9,27 @@ const ContactUs = () => {
     const {loggedInUser, contactMessageList} = store
     // console.log(contactMessageList)
 
+    // Store the URL
+    const url = window.location.href
+
+    // split the url up
+    var urlSplits = url.split('/')
+    var urlSplitsItems = urlSplits.length
+    // console.log(urlSplitsItems)
+
+    // get the last item in the array
+    var objectID = urlSplits[urlSplitsItems - 1]
+    // console.log(objectID)
+
+    // slice end of url for object type
+    var objectName = urlSplits[urlSplitsItems - 2]
+    // console.log(objectName)
+
+
     const initialFormData = {
         id: 0,
+        matter: objectName ? objectName : "Enquiry",
+        matterID: objectID ? parseInt(objectID) : this.id,
         userID: loggedInUser? loggedInUser.id : 0,
         firstName: loggedInUser? loggedInUser.firstName : "",
         lastName: loggedInUser? loggedInUser.lastName : "",  
@@ -32,7 +51,7 @@ const ContactUs = () => {
             [event.target.name]: event.target.value
         })
     }
-    // useEffect(() => console.log(formData),[formData])
+    useEffect(() => console.log(formData),[formData])
 
     const clearMessage = () => {
         setFormData(initialFormData)
@@ -51,7 +70,7 @@ const ContactUs = () => {
             clearMessage()
         }
     }
-    // useEffect(() => console.log(console.log(contactMessageList)), [contactMessageList])
+    useEffect(() => console.log(console.log(contactMessageList)), [contactMessageList])
 
     function nextID(data){
         // first exclude the empty case
