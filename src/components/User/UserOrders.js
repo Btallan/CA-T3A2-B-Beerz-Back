@@ -14,13 +14,25 @@ const UserOrders = () => {
 
     const userOrders = orderList.filter(orders => parseInt(orders.userID) === parseInt(loggedInUser.id))
     userOrders.sort((a,b) => b.id - a.id)    
+    
+    // Check to see whether the user has any orders
+    var activeUserOrders = !userOrders.length
+
     console.log(userOrders)
+    console.log(activeUserOrders)
+
     return (
         <>
-            <h1>My Orders</h1>
-            {userOrders.map(order =>
-                <Order key={order.id} order={order} />    
-            )}
+            {!activeUserOrders ? 
+                <>
+                    <h1>My Orders</h1>
+                        {userOrders.map(order =>
+                        <Order key={order.id} order={order} />    
+                        )}
+                </>
+                :
+                            null
+            }
         </>
     )
 }

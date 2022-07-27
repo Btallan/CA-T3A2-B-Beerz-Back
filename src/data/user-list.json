@@ -23,5 +23,17 @@
         "password": "123456",
         "flavourTags": [1,3,4],
         "address": "47 Seagull Dr, Burleigh Heads, 4220, QLD "
+    },
+    {
+        "id": 3,
+        "firstName": "Ben",
+        "lastName": "Allan",
+        "email": "bena@email.com",
+        "mobile": "0411778844",
+        "username": "ben",
+        "dob": "07/10/1995",
+        "password": "123",
+        "flavourTags": [1,3,4],
+        "address": "78 Seagull Dr, Burleigh Heads, 4220, QLD "
     }
 ]
