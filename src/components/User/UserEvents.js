@@ -20,7 +20,8 @@ const UserEvents = () => {
     // console.log(eventList)
     // console.log(loggedInUser)
     // console.log(userBookings)
-
+    
+    // Checking to see whether the user has any currently active events
     var activeEvents = userBookings.some(booking => booking.status === true)
 
     // console.log(activeEvents)

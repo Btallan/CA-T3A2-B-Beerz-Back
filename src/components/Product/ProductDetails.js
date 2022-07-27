@@ -5,6 +5,7 @@ import { useGlobalState } from '../../utils/stateContext';
 import Reviews from './Reviews'
 import ProductDescription from './ProductDescription';
 import ProductProcess from './ProductProcess'
+import PurchaseProduct from './PurchaseProduct'
 
 // import ProductTabs from './ProductTabs'
 
@@ -54,6 +55,10 @@ const ProductDetails = () => {
             <ProductDescription product={product}/>
             <ProductProcess product={product}/>
             <Reviews product={product}/>
+
+            
+            {/* Purchasing Component */}
+            <PurchaseProduct product={product}/>
 
         </>
     )

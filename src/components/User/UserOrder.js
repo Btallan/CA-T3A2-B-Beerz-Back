@@ -12,12 +12,18 @@ const Order = ({order}) => {
     const orderedProduct = productList.find(product => parseInt(product.id) === parseInt(order.productID))
     // console.log(orderedProduct)
 
+    // Checking to see whether the user has any outstanding orders,
+    // var activeOrders = orderedProduct.some(product => product.status === "")
+    // console.log(activeOrders)
+
+
     return(
         <>
             <h4>{order.orderDate}</h4>
             <p>{orderedProduct.name}</p>
-            <p>{order.quantity}</p>
+            <p>{order.quantityOrdered}</p>
             <p>Status: {order.status}</p>
+            <hr></hr>
         </>
     )
 

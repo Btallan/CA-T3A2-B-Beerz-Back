@@ -22,7 +22,8 @@ const LogIn = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log("Submit button clicked")
-        const user = userList.find(user => user.username === formData.username)    
+        const user = userList.find(user => user.username === formData.username)
+        if(!user){console.log("User not found")}    
         if(user.password === formData.password){
             dispatch({
                 type: "setLoggedInUser",

@@ -136,6 +136,13 @@ const reducer = (state, action) => {
                 reviewList: [action.data, ...state.reviewList]
             }
         }
+        case "addProductOrder": {
+            // add review to the list
+            return { 
+                ...state, 
+                orderList: [action.data, ...state.orderList]
+            }
+        }
         default: return state
     }
 

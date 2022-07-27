@@ -11,7 +11,8 @@ const SignUp = () => {
         username: "",
         dob: "",
         password: "",
-        passwordConfirmation: ""
+        passwordConfirmation: "",
+        flavourTags: []
     }
 
     // Calling the state function

@@ -3,7 +3,7 @@
         "id": 1,
         "userID": 1,
         "productID": 1,
-        "quantity": 4,
+        "quantityOrdered": 2,
         "orderDate": "20/07/2022",
         "status": "Completed"
     },
@@ -11,7 +11,7 @@
         "id": 2,
         "userID": 1,
         "productID": 2,
-        "quantity": 4,
+        "quantityOrdered": 1,
         "orderDate": "22/07/2022",
         "status": "Shipped"
     },
@@ -19,7 +19,7 @@
         "id": 3,
         "userID": 1,
         "productID": 1,
-        "quantity": 4,
+        "quantityOrdered": 3,
         "orderDate": "26/07/2022",
         "status": "Pending"
     },
@@ -27,7 +27,7 @@
         "id": 4,
         "userID": 2,
         "productID": 1,
-        "quantity": 4,
+        "quantityOrdered": 2,
         "orderDate": "25/07/2022",
         "status": "Pending"
     }
