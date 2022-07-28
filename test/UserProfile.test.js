@@ -4,15 +4,17 @@
 
 // import dependencies
 import React, {Component} from 'react';
-
-// import userEvent from '@testing-library/user-event'
+// Import user-event methods
+import userEvent from '@testing-library/user-event'
 // import react-testing methods
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+// import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
-
+// Import the Bookings
 import UserBooking from '../src/components/User/UserBooking';
+// Import context so that it can be used for testing
 import {StateContext} from '../src/utils/stateContext'
-
+// Import router so that navigate issue does not arise
 import {BrowserRouter as Router} from 'react-router-dom';
 
 const testBooking ={
@@ -44,17 +46,28 @@ var eventList = [
     }
 ]
 
-test("Can the component load", () => {
+const user = userEvent.setup();
+
+describe("Testing the booking component", () => {
+    // Creating a mock function for dispatch
     const dispatch = jest.fn()
     const store = {eventList}
-    const {queryByTestId} = render(
+    const component = render(
     <Router>
         <StateContext.Provider value={{store,dispatch}}>
             <UserBooking booking={testBooking}/>
         </StateContext.Provider>
     </Router>
     );
-    const cancelButton = screen.queryByTestId('cancelButton')
-    expect(cancelButton).toBeDefined()
-});
- 
+    it("Test to see the component mounts correctly", () => {
+        // Select the cancel booking button
+        expect(component).toBeDefined()
+    })
+    it("tests that a function is fired on the button click", async () => {
+        const mockCBFN = jest.fn()
+        const {getByTestId} = render(<button onClick={mockCBFN} id="cancelButton" data-testid="cancelButton">Cancel Booking</button>)
+        fireEvent.click(getByTestId('cancelButton'))   
+        expect(mockCBFN).toHaveBeenCalledTimes(1)
+    })
+    
+})

@@ -34,7 +34,7 @@ const UserBooking = ({booking}) => {
             <p>{selectedEvent.time} - {selectedEvent.date}</p>
             <p data-testid="ticketsBooked">Tickets booked: {booking.quantity}</p>
             <p>Status: {booking.status ? "Upcoming " : "Cancelled"}</p>
-            <button onClick={cancelBooking} id="cancelButton">Cancel Booking</button>
+            <button onClick={cancelBooking} id="cancelButton" data-testid="cancelButton">Cancel Booking</button>
             <button onClick={contactBrewery} data-testid="contactButton">Contact Brewery</button>
             <hr></hr>  
         </>
