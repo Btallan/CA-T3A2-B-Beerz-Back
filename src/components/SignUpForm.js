@@ -38,8 +38,9 @@ const SignUp = () => {
         })
         setFormData(initialSignUpData)
         navigate('/')
+        // return true
     }
-
+    
     // Handling the form data as the user enter keystrokes
     const handleFormData = (event) => {
         setFormData({

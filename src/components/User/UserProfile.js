@@ -1,3 +1,5 @@
+import React from 'react';
+
 import UserEvents from './UserEvents';
 import UserOrders from './UserOrders';
 import UserPersonalInfo from './UserPersonalInfo'
