@@ -69,5 +69,13 @@ describe("Testing the booking component", () => {
         fireEvent.click(getByTestId('cancelButton'))   
         expect(mockCBFN).toHaveBeenCalledTimes(1)
     })
-    
+    it("removes an event from the list when the CB function is called", () => {
+        function cancelBooking(id){
+            const index = eventList.filter(event => event.id === id)
+            eventList.splice(parseInt(index.id),1)
+            return eventList        
+        }
+            expect(cancelBooking(1)).toStrictEqual([expect.objectContaining({id: 2})])
+            expect(cancelBooking(2)).toStrictEqual([expect.objectContaining({id: 1})])            
+    })    
 })
