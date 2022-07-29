@@ -43,6 +43,15 @@ var eventList = [
         date: "30/07/2022",
         time: "9:00",
         status: "upcoming"
+    },
+    {
+        id: 3,
+        title: "Tour & Tasting #2",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet rhoncus elit. Aenean fermentum aliquet dolor, vitae pulvinar dolor vulputate a. Duis suscipit mauris augue, non auctor nulla consectetur et. Sed nunc libero, laoreet et orci id, viverra ornare lectus. Aliquam erat volutpat. Praesent hendrerit lacus eros, nec elementum.",
+        eventIMG: "https://media-cdn.tripadvisor.com/media/photo-s/1c/74/a9/09/distillery-tour-at-granddad.jpg",
+        date: "30/07/2022",
+        time: "9:00",
+        status: "upcoming"
     }
 ]
 
@@ -71,11 +80,11 @@ describe("Testing the booking component", () => {
     })
     it("removes an event from the list when the CB function is called", () => {
         function cancelBooking(id){
-            const index = eventList.filter(event => event.id === id)
-            eventList.splice(parseInt(index.id),1)
-            return eventList        
+            const index = eventList.filter(event => event.id !== id)
+            return index        
         }
-            expect(cancelBooking(1)).toStrictEqual([expect.objectContaining({id: 2})])
-            expect(cancelBooking(2)).toStrictEqual([expect.objectContaining({id: 1})])            
+            expect(cancelBooking(1)).toStrictEqual([expect.objectContaining({id: 2}),expect.objectContaining({id: 3})])
+            expect(cancelBooking(2)).toStrictEqual([expect.objectContaining({id: 1}),expect.objectContaining({id: 3})])
+            expect(cancelBooking(3)).toStrictEqual([expect.objectContaining({id: 1}),expect.objectContaining({id: 2})])
     })    
 })
