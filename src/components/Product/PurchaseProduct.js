@@ -48,7 +48,7 @@ const OrderProduct = ({product}) => {
     
     const handleDecrement = (event) => {
         event.preventDefault()
-        if(!quantity == 0){
+        if(quantity !== 0){
             quantity --
             setFormData({
                 ...formData,
@@ -92,9 +92,9 @@ const OrderProduct = ({product}) => {
             </div>
             <form onSubmit={addOrder}>
                 <div>
-                    <Button variant='contained' name ="add" value="1" onClick={handleIncrement}>+</Button>
+                    <Button variant='contained' name ="add" value={1} onClick={handleIncrement}>+</Button>
                     <Typography variant='body1'>{quantity}</Typography>
-                    <Button variant='contained' name="subtract" value="-1" onClick={handleDecrement}>-</Button>
+                    <Button variant='contained' name="subtract" value={-1} onClick={handleDecrement}>-</Button>
                 </div>
             <Button type="submit" variant="contained" value='Order'>Order</Button>
 
