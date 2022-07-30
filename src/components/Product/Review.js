@@ -1,5 +1,8 @@
 import { useGlobalState } from '../../utils/stateContext';
 
+// MATERIAL UI IMPORTS
+import {Typography} from '@mui/material'
+
 
 const Review = ({review}) => {    
     // Calling the store into the component through global state
@@ -11,11 +14,10 @@ const Review = ({review}) => {
     // console.log(review)
     return (
         <>
-            <h4>{review.headline}</h4>
-            <h4>{review.comment}</h4>
-            <h4>{review.rating}</h4>
-            <h4>{review.dateEditted}</h4>
-            <h4>{foundUser.username}</h4>
+            <Typography variant="h6">{review.headline}</Typography>
+            <Typography variant="subtitle2">Rating: {review.rating}</Typography>
+            <Typography variant="body1">{review.comment}</Typography>
+            <Typography variant="subtitle2">{review.dateEditted} - {foundUser.username}</Typography>
             <hr></hr>
         </>
     )

@@ -1,6 +1,9 @@
 // Import global states
 import { useGlobalState } from '../../utils/stateContext'
 
+// MATERIAL UI IMPORTS
+import {Button, Typography} from '@mui/material'
+
 const UserTags = () => {
     // Calling dispatch into the component, so that we can update the global state
     const {store,dispatch} = useGlobalState();
@@ -21,8 +24,6 @@ const UserTags = () => {
         
         if(!userFlavourTags.includes(parseInt(flavourID))){            
             userFlavourTags.push(parseInt(flavourID))
-            event.target.style.backgroundColor = "green"           
-            event.target.style.color = "white"
             // console.log(userFlavourTags)
             dispatch({
                 type: "updateUserFlavourTags",
@@ -33,8 +34,6 @@ const UserTags = () => {
             var indexOfFlavour = userFlavourTags.indexOf(parseInt(flavourID))
             // console.log(indexOfFlavour)
             userFlavourTags.splice(indexOfFlavour,1)
-            event.target.style.backgroundColor = ""           
-            event.target.style.color = "black"
             // console.log(userFlavourTags)
             dispatch({
                 type: "updateUserFlavourTags",
@@ -46,12 +45,12 @@ const UserTags = () => {
 
     return (
         <>
-            <h1>User Flavour Tags</h1>
+            <Typography variant='h4'>User Flavour Tags</Typography>
             {tagList.map(tag =>  
                 loggedInUser.flavourTags.includes(tag.id)?
-                    <button key={tag.id} onClick={onClick} value={tag.id} style={{color: "white", backgroundColor: "green"}}>{tag.tag}</button>
+                    <Button variant='outlined' key={tag.id} onClick={onClick} value={tag.id} >{tag.tag}</Button>
                     :    
-                    <button key={tag.id} onClick={onClick} value={tag.id} >{tag.tag}</button>
+                    <Button variant='contained' key={tag.id} onClick={onClick} value={tag.id} >{tag.tag}</Button>
             )}        
         </>
     )

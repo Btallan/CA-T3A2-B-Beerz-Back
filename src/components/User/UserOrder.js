@@ -1,6 +1,9 @@
 // Import global states
 import { useGlobalState } from '../../utils/stateContext'
 
+// MATERIAL UI IMPORTS
+import {Typography} from '@mui/material'
+
 const Order = ({order}) => {
     // Calling dispatch into the component, so that we can update the global state
     const {store} = useGlobalState();
@@ -19,10 +22,10 @@ const Order = ({order}) => {
 
     return(
         <>
-            <h4>{order.orderDate}</h4>
-            <p>{orderedProduct.name}</p>
-            <p>{order.quantityOrdered}</p>
-            <p>Status: {order.status}</p>
+            <Typography variant='body1'>{order.orderDate}</Typography>
+            <Typography variant='body1'>{orderedProduct.name}</Typography>
+            <Typography variant='body1'>{order.quantityOrdered}</Typography>
+            <Typography variant='body1'>Status: {order.status}</Typography>
             <hr></hr>
         </>
     )

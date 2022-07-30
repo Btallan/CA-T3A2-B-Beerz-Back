@@ -9,6 +9,12 @@ import PurchaseProduct from './PurchaseProduct'
 
 // import ProductTabs from './ProductTabs'
 
+// MATERIAL UI IMPORTS
+import {Tab, Box, Typography} from '@mui/material'
+
+import { TabPanel, TabContext, TabList } from '@mui/lab';
+import { useState } from 'react';
+
 
 
 const ProductDetails = () => {
@@ -27,42 +33,61 @@ const ProductDetails = () => {
 
     const product = getProduct(params.id)
 
-    // var tabSelection = "Description"
-    // var description = true
-    // var brewing = false
-    // var reviews = false
 
     // Handling the submission of the form
-    const handleButton = (event) => {
-        // event.preventDefault()
-        // console.log(event.target.name)
-        // tabSelection = event.target.name
-        // console.log(tabSelection)
-    }
+    // const handleButton = (event) => {
+    //     // event.preventDefault()
+    //     // console.log(event.target.name)
+    //     // tabSelection = event.target.name
+    //     // console.log(tabSelection)
+    // }
 
+
+    // Store the current URL
+    const url = window.location.href
+    // console.log(url)
+    // Slice the current url to get the last 8 characters, -8 to start from the end
+    const lastChars = url.slice(-8)
+    console.log(lastChars)
+    // Initialise the variable to store the url boolean
+    // var urlBoolean
+
+    var initialValue = "1"
+    if(lastChars === 'reviewed'){
+        // Initialise the variable
+        initialValue = "3"
+    } 
+
+    const [value, setValue] = useState(initialValue)
+    const handleChange = (event,value) => {
+        console.log(value)
+        setValue(value)
+    }
 
     return (
         <>
-            <h1>{product.name}</h1>
-            <img alt="Product IMG" src={product.productIMG} style={{height: "200px"}}></img>
-
-            <button onClick={handleButton} name="description">Description</button>
-            <button onClick={handleButton} name="brewing-process" >Brewing Process</button>
-            <button onClick={handleButton} name="reviews" >Reviews</button>
-
-            {/* <ProductTabs product={product} tabSelection={tabSelection} /> */}
-
-            <ProductDescription product={product}/>
-            <ProductProcess product={product}/>
-            <Reviews product={product}/>
-
-            
+            <Typography variant='h4'>{product.name}</Typography>
+            <img alt="Product IMG" src={product.productIMG} style={{height: "200px"}}></img>     
+            <TabContext value={value}>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                <TabList onChange={handleChange} aria-label="lab API tabs example">
+                    <Tab label="Description" value="1" />
+                    <Tab label="Brewing Process" value="2" />
+                    <Tab label="Reviews" value="3" />
+                    {loggedInUser && <Tab label="Purchase" value="4" />} 
+                </TabList>
+            </Box>
+            <TabPanel value="1"><ProductDescription product={product}/></TabPanel>
+            <TabPanel value="2"><ProductProcess product={product}/></TabPanel>
+            <TabPanel value="3"><Reviews product={product}/></TabPanel>
             {/* Purchasing Component */}
             {loggedInUser ?
-                    <PurchaseProduct product={product}/>
-                :
+                <TabPanel value="4"><PurchaseProduct product={product}/></TabPanel>
+            :
                     null
             }
+            </TabContext>
+
 
         </>
     )

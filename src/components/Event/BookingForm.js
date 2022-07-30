@@ -2,6 +2,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../../utils/stateContext';
 
+// MATERIAL UI IMPORTS
+import {Button, TextField,InputLabel,Typography} from '@mui/material'
+
 
 const BookingForm = ({event}) => {
     // Calling in dispatch
@@ -50,11 +53,11 @@ const BookingForm = ({event}) => {
                 <form onSubmit={handleSubmit}>
 
                 <div>
-                    <label>How many tickets would you like to book?</label>
-                    <input type="number" id="tickets" name="tickets" min="1" max="20" />
+                    <InputLabel>How many tickets would you like to book?</InputLabel>
+                    <TextField type="number" id="tickets" name="tickets" min="1" max="20" />
                 </div>
+                <Button type="submit" variant="contained">Book In</Button>
 
-                <input type="submit" value="Book In"></input>
             </form>
         </>
     )

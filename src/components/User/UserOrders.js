@@ -4,6 +4,9 @@ import { useGlobalState } from '../../utils/stateContext'
 // Import order component
 import Order from '../User/UserOrder'
 
+// MATERIAL UI IMPORTS
+import {Typography} from '@mui/material'
+
 const UserOrders = () => {
     // Calling dispatch into the component, so that we can update the global state
     const {store} = useGlobalState();
@@ -18,14 +21,14 @@ const UserOrders = () => {
     // Check to see whether the user has any orders
     var activeUserOrders = !userOrders.length
 
-    console.log(userOrders)
-    console.log(activeUserOrders)
+    // console.log(userOrders)
+    // console.log(activeUserOrders)
 
     return (
         <>
             {!activeUserOrders ? 
                 <>
-                    <h1>My Orders</h1>
+                    <Typography variant='h4'>My Orders</Typography>
                         {userOrders.map(order =>
                         <Order key={order.id} order={order} />    
                         )}

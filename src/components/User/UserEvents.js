@@ -3,6 +3,9 @@ import { useGlobalState } from "../../utils/stateContext";
 
 import UserBooking from "./UserBooking";
 
+// MATERIAL UI IMPORTS
+import {Typography} from '@mui/material'
+
 const UserEvents = () => {
     // Import context
     const {store} = useGlobalState();
@@ -24,7 +27,7 @@ const UserEvents = () => {
         <>
             {activeEvents? 
                 <>
-                    <h1>My Upcoming Events</h1>
+                    <Typography variant='h4'>My Upcoming Events</Typography>
                     {/* Only show bookings which have not been cancelled */}
                     {userBookings.map(booking => 
                     !booking.status ? null :    <UserBooking key={booking.id} booking={booking}/> 

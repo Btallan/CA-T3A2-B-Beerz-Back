@@ -2,6 +2,9 @@ import {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useGlobalState } from '../utils/stateContext'
 
+// MATERIAL UI IMPORTS
+import {Button, TextField,InputLabel,Typography} from '@mui/material'
+
 const SignUp = () => {
     const initialSignUpData = {        
         firstName: "",
@@ -63,41 +66,41 @@ const SignUp = () => {
 
     return (
         <>
-            <h1>Sign Up!</h1>
+            <Typography variant='h4'>Sign Up!</Typography>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>First Name</label>
-                    <input type="text" name="firstName" id="firstName" value={formData.firstName} onChange={handleFormData}></input>
-                    <label>Last Name</label>
-                    <input type="text" name="lastName" id="lastName" value={formData.lastName} onChange={handleFormData}></input>
+                    <InputLabel>First Name</InputLabel>
+                    <TextField type="text" name="firstName" id="firstName" value={formData.firstName} onChange={handleFormData}></TextField>
+                    <InputLabel>Last Name</InputLabel>
+                    <TextField type="text" name="lastName" id="lastName" value={formData.lastName} onChange={handleFormData}></TextField>
                 </div>
                 <div>
-                    <label>Email</label>
-                    <input type="email" name="email" id="email" value={formData.email} onChange={handleFormData}></input>
+                    <InputLabel>Email</InputLabel>
+                    <TextField type="email" name="email" id="email" value={formData.email} onChange={handleFormData}></TextField>
                 </div>
                 <div>
-                    <label>Mobile</label>
-                    <input type="text" name="mobile" id="mobile" value={formData.mobile} onChange={handleFormData}></input>
+                    <InputLabel>Mobile</InputLabel>
+                    <TextField type="text" name="mobile" id="mobile" value={formData.mobile} onChange={handleFormData}></TextField>
                 </div>
                 <div>
-                    <label>Username</label>
-                    <input type="text" name="username" id="username" value={formData.username} onChange={handleFormData}></input>
+                    <InputLabel>Username</InputLabel>
+                    <TextField type="text" name="username" id="username" value={formData.username} onChange={handleFormData}></TextField>
                 </div>
                 <div>
-                    <label>Address</label>
-                    <input type="text" name="address" id="address" value={formData.address} onChange={handleFormData}></input>
+                    <InputLabel>Address</InputLabel>
+                    <TextField type="text" name="address" id="address" value={formData.address} onChange={handleFormData}></TextField>
                 </div>
                 <div>
-                    <label>Date of Birth</label>
-                    <input type="text" name="dob" id="dob" value={formData.dob} onChange={handleFormData}></input>
+                    <InputLabel>Date of Birth</InputLabel>
+                    <TextField type="text" name="dob" id="dob" value={formData.dob} onChange={handleFormData}></TextField>
                 </div>
                 <div>
-                    <label>Password</label>
-                    <input type="password" name="password" id="password" value={formData.password} onChange={handleFormData}></input>
-                    <label>Password Confirmation</label>
-                    <input type="password" name="passwordConfirmation" id="passwordConfirmation" value={formData.passwordConfirmation} onChange={handleFormData}></input>
+                    <InputLabel>Password</InputLabel>
+                    <TextField type="password" name="password" id="password" value={formData.password} onChange={handleFormData}></TextField>
+                    <InputLabel>Password Confirmation</InputLabel>
+                    <TextField type="password" name="passwordConfirmation" id="passwordConfirmation" value={formData.passwordConfirmation} onChange={handleFormData}></TextField>
                 </div>
-                <input type="submit" value="Sign Up" />
+                <Button type="submit" variant="contained">Sign Up</Button>
 
             </form>
         </>

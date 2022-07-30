@@ -2,6 +2,9 @@ import {Link} from 'react-router-dom'
 import {useGlobalState} from '../utils/stateContext'
 import {useNavigate} from 'react-router-dom'
 
+// MATERIAL UI IMPORTS
+import {AppBar, Toolbar,Tabs,Tab} from '@mui/material'
+
 
 const Navigation = () =>{
     // Calling store and dispatch into the component, so that nav has access to it
@@ -23,23 +26,22 @@ const Navigation = () =>{
         })
         navigate('/')
     }
-
     return(
-        <nav>
-            {/* Links prevent a re-render of the page */}
-            <Link to="/">Home</Link>            
-            <Link to="/products">Products</Link>  
-            <Link to="/about">About</Link>     
-            {/* <Link to="/signup">Sign Up</Link>     
-            <Link to="/login">Log In</Link> */}
-            {!loggedInUser && <Link to="/signup">Sign Up</Link>}  
+        <AppBar position='sticky' >
+            <Toolbar>
+                <Tabs value={false}>
+                    <Tab label="Home" component={Link} to="/"></Tab>
+                    <Tab label="Products" component={Link} to="/products"></Tab>
+                    <Tab label="About" component={Link} to="/about"></Tab>   
 
-            
-            {!loggedInUser && <Link to="/login">Log In</Link>}
+                    {!loggedInUser && <Tab label="Sign Up" component={Link} to="/signup"></Tab>}
+                    {!loggedInUser && <Tab label="Log In" component={Link} to="/login"></Tab>}
+                    {loggedInUser && <Tab label="User" component={Link} to={`/${loggedInUser.username}`}></Tab>}
+                    {loggedInUser && <Tab label="Log Out" component={Link} to="/" onClick={logout}></Tab>}
 
-            {loggedInUser && <Link to={`/${loggedInUser.username}`} >User</Link>}                     
-            {loggedInUser && <Link to="/" onClick={logout}>Log Out</Link>}                     
-        </nav>
+                </Tabs>
+            </Toolbar>
+        </AppBar>
     )
 }
 

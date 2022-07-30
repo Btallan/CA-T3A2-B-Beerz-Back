@@ -40,6 +40,12 @@ import initialTagList from './data/tag-list.json'
 import initialOrderList from './data/order-list.json'
 import initialContactMessageList from './data/contactMessages-list.json'
 
+
+// // MATERIAL UI IMPORTS
+// import Button from '@mui/material/Button';
+
+
+
 // Import reducer
 import reducer from './utils/reducer'
 
@@ -131,7 +137,7 @@ const App = () => {
                 <Route path='/' element={<Home />} />
                 <Route path='/signup' element={<SignUp />} />
                 <Route path='/products' element={<Products />} />
-                <Route path='/products/:id' element={<ProductDetails />} />
+                <Route path='/products/:id/*' element={<ProductDetails />} />
                 <Route path='/events/:id' element={<EventDetails />} />
               </Route>
 

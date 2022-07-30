@@ -1,11 +1,14 @@
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
+import {Link, Typography} from '@mui/material'
+
 
 const Footer = () => {
     return (
         <>
-            <p>Beers ©</p>
-            <Link to="/contact">Contact Us</Link>
+            <Typography variant="h6">Beers ©</Typography>
+            {/* <Link to="/contact">Contact Us</Link> */}
 
+            <Link href='/contact'>Contact Us</Link>
         </>
     )
 }

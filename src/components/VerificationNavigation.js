@@ -2,17 +2,21 @@ import {Link} from 'react-router-dom'
 // import {useGlobalState} from '../utils/stateContext'
 // import AgeVerification from './AgeVerification';
 
+// MATERIAL UI IMPORTS
+import {AppBar, Toolbar,Tabs,Tab} from '@mui/material'
+
 
 const VerificationNavigation = () =>{
-
-
     return(
-        <nav>
-            {/* Links prevent a re-render of the page */}            
-            <Link to="/">Home</Link>
-            <Link to="/login">Log In</Link>
-            <Link to="/about">About</Link>   
-        </nav>
+        <AppBar position='sticky'>
+            <Toolbar>
+                <Tabs value={false}>
+                    <Tab label="Home" component={Link} to="/"></Tab>
+                    <Tab label="Log In" component={Link} to="/login"></Tab>
+                    <Tab label="About" component={Link} to="/about"></Tab>
+                </Tabs>
+            </Toolbar>
+        </AppBar>
     )
 }
 

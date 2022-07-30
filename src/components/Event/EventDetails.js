@@ -7,6 +7,9 @@ import {useParams} from 'react-router-dom'
 // Import BookingForm component
 import BookingForm from './BookingForm';
 
+// MATERIAL UI IMPORTS
+import {Typography} from '@mui/material'
+
 
 const Event = () => {    
     // Calling the store into the component through global state
@@ -25,10 +28,10 @@ const Event = () => {
 
     return (
         <>
-            <h4>{selectedEvent.title}</h4>
+            <Typography variant='h5'>{selectedEvent.title}</Typography>
             <img alt="Event IMG" src={selectedEvent.eventIMG} style={{height: "200px"}}></img>
-            <p>{selectedEvent.date} - {selectedEvent.time}</p>
-            <p>{selectedEvent.description}</p>
+            <Typography variant='body1'>{selectedEvent.date} - {selectedEvent.time}</Typography>
+            <Typography variant='body1'>{selectedEvent.description}</Typography>
             <BookingForm event={selectedEvent} loggedInUser={loggedInUser} bookingList={bookingList} />
             
         </>

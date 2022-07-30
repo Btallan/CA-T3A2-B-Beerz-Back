@@ -1,5 +1,8 @@
 import {Link} from 'react-router-dom'
 
+// MATERIAL UI IMPORTS
+import {Button, Typography} from '@mui/material'
+
 const Product = ({product}) => {
     // Store the current URL
     const url = window.location.href
@@ -16,16 +19,19 @@ const Product = ({product}) => {
     
     return (
         <>
-            <h1>{product.name}</h1>
+            <Typography variant='h5'>{product.name}</Typography>
             <img alt="Product IMG" src={product.productIMG} style={{height: "200px"}}></img>
-            <h4>{product.title}</h4>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
+            <Typography variant='h6'>{product.title}</Typography>
+            <Typography variant="body1">{product.description}</Typography>
+            <Typography variant="body1">{product.price}</Typography>
             {/* Based upon url boolean, return certain links */}
             {urlBoolean ?
-                <Link to={`${product.id}`}>See more</Link>
+                // <Link to={`${product.id}`}>See more</Link>
+                <Button component={Link} to={`${product.id}`} variant="contained">See More</Button>
+
             :
-                <Link to={`/products/${product.id}`}>See more</Link>
+                // <Link to={`/products/${product.id}`}>See more</Link>
+                <Button component={Link} to={`/products/${product.id}`} variant="contained">See More</Button>
             }
             
         </>

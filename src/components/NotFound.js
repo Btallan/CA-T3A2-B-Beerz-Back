@@ -1,7 +1,10 @@
+// MATERIAL UI IMPORTS
+import {Typography} from '@mui/material'
+
 const NotFound = () => {
     return (
         <>
-            <h4>Page not found</h4>
+            <Typography variant='h4'>Page not found</Typography>
         </>
     )
 }

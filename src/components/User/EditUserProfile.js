@@ -2,6 +2,9 @@ import { useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useGlobalState } from '../../utils/stateContext'
 
+// MATERIAL UI IMPORTS
+import {Button, TextField,InputLabel,Typography} from '@mui/material'
+
 const EditUserProfile = ({user}) => {
     // Calling dispatch into the component, so that we can update the global state
     const {store, dispatch} = useGlobalState();
@@ -9,6 +12,7 @@ const EditUserProfile = ({user}) => {
 
     // Controlled components for form
     const intialFormData ={
+        id: loggedInUser.id,
         firstName: loggedInUser.firstName,
         lastName: loggedInUser.lastName,
         email: loggedInUser.email,
@@ -54,9 +58,11 @@ const EditUserProfile = ({user}) => {
             })
         }
         
-        return (
+    console.log(loggedInUser)
+
+    return (
             <>
-            <h1>Edit Profile!</h1>
+            <Typography variant='h4'>Edit Profile!</Typography>
             {console.log(formData)}
             <form onSubmit={handleSubmit}>
                 {/* <img alt="Profile Image" src={formData.profileIMG} style={{width: "100px"}}></img>           
@@ -65,36 +71,35 @@ const EditUserProfile = ({user}) => {
                     <input type="file" name="profileIMG" id="profileIMG"  onChange={handleFormData}></input>
                 </div> */}
                 <div>
-                    <label>First Name</label>
-                    <input type="text" name="firstName" id="firstName" value={formData.firstName} onChange={handleFormData}></input>
-                    <label>Last Name</label>
-                    <input type="text" name="lastName" id="lastName" value={formData.lastName} onChange={handleFormData}></input>
+                    <InputLabel>First Name</InputLabel>
+                    <TextField type="text" name="firstName" id="firstName" value={formData.firstName} onChange={handleFormData}></TextField>
+                    <InputLabel>Last Name</InputLabel>
+                    <TextField type="text" name="lastName" id="lastName" value={formData.lastName} onChange={handleFormData}></TextField>
                 </div>
                 <div>
-                    <label>Email</label>
-                    <input type="email" name="email" id="email" value={formData.email} onChange={handleFormData}></input>
+                    <InputLabel>Email</InputLabel>
+                    <TextField type="email" name="email" id="email" value={formData.email} onChange={handleFormData}></TextField>
                 </div>
                 <div>
-                    <label>Mobile</label>
-                    <input type="text" name="mobile" id="mobile" value={formData.mobile} onChange={handleFormData}></input>
+                    <InputLabel>Mobile</InputLabel>
+                    <TextField type="text" name="mobile" id="mobile" value={formData.mobile} onChange={handleFormData}></TextField>
                 </div>
                 <div>
-                    <label>Address</label>
-                    <input type="text" name="address" id="address" defaultValue={loggedInUser.address} onChange={handleFormData}></input>
+                    <InputLabel>Address</InputLabel>
+                    <TextField type="text" name="address" id="address" defaultValue={loggedInUser.address} onChange={handleFormData}></TextField>
                 </div>
                 <div>
-                    <label>Date of Birth</label>
-                    <input type="text" name="dob" id="dob" value={formData.dob} onChange={handleFormData}></input>
+                    <InputLabel>Date of Birth</InputLabel>
+                    <TextField type="text" name="dob" id="dob" value={formData.dob} onChange={handleFormData}></TextField>
                 </div>
                 <div>
-                    <label>Password</label>
-                    <input type="password" name="password" id="password" value={formData.password} onChange={handleFormData}></input>
+                    <InputLabel>Password</InputLabel>
+                    <TextField type="password" name="password" id="password" value={formData.password} onChange={handleFormData}></TextField>
 
-                    <label>Password Confirmation</label>
-                    <input type="password" name="passwordConfirmation" id="passwordConfirmation" value={formData.passwordConfirmation} onChange={handleFormData}></input>
+                    <InputLabel>Password Confirmation</InputLabel>
+                    <TextField type="password" name="passwordConfirmation" id="passwordConfirmation" value={formData.passwordConfirmation} onChange={handleFormData}></TextField>
                 </div>
-                <input type="submit" value="Edit" />
-
+                <Button type="submit" variant="contained">Edit</Button>
             </form>
         </>
     )

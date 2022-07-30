@@ -2,6 +2,9 @@ import {useState} from 'react'
 import { useGlobalState } from '../utils/stateContext'
 import {useNavigate} from 'react-router-dom'
 
+// MATERIAL UI IMPORTS
+import {Button, TextField,InputLabel, Typography} from '@mui/material'
+
 const LogIn = () => {
     const initialLogInData = {
         username: "",
@@ -47,19 +50,19 @@ const LogIn = () => {
 
     return (
         <>
-            <h1>Log In!</h1>
+            <Typography variant='h4'>Log In!</Typography>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Username</label>
-                    <input type="text" name="username" id="username" value={formData.username} onChange={handleFormData}></input>
+                    <InputLabel>Username</InputLabel>
+                    <TextField type="text" name="username" id="username" value={formData.username} onChange={handleFormData}></TextField>
                 </div>
 
                 <div>
-                    <label>Password</label>
-                    <input type="password" name="password" id="password" value={formData.password} onChange={handleFormData}></input>
+                    <InputLabel>Password</InputLabel>
+                    <TextField type="password" name="password" id="password" value={formData.password} onChange={handleFormData}></TextField>
                 </div>
 
-                <input type="submit" value="Login" />
+                <Button type="submit" variant="contained">Log In</Button>
             </form>
         </>
     )

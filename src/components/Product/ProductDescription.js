@@ -1,9 +1,12 @@
+// MATERIAL UI IMPORTS
+import {Typography} from '@mui/material'
+
 const ProductDescription = ({product}) => {
     return (
         <>
-            <h4>{product.title}</h4>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
+            <Typography variant="h6">{product.title}</Typography>
+            <Typography variant="body1">{product.description}</Typography>
+            <Typography variant="body1">${product.price} ea</Typography>
         </>
     )
 }

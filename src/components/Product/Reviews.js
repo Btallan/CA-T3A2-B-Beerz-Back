@@ -3,6 +3,9 @@ import {Link} from 'react-router-dom'
 
 import Review from './Review'
 
+// MATERIAL UI IMPORTS
+import {Button, Typography} from '@mui/material'
+
 const Reviews = ({product}) => {
     // Calling the store into the component through global state
     const {store} = useGlobalState()
@@ -40,9 +43,11 @@ const Reviews = ({product}) => {
     
     return (
         <>
-            <h4>Reviews</h4>
-            <p>Average Rating: {getOverallRating(productReviews)}</p>
-            {loggedInUser && <Link to={`/add-review/${product.id}`}>Add a review!</Link>}
+            <Typography variant='h6'>Reviews</Typography>
+            <Typography variant="subtitle1">Average Rating: {getOverallRating(productReviews)}</Typography>
+            {loggedInUser && <Button component={Link} to={`/add-review/${product.id}`} variant="contained">Add a review!</Button>}
+            
+
             <hr></hr>
             {productReviews.map(review =>
                 <Review key={review.id} review={review} />    

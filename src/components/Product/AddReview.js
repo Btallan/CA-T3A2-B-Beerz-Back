@@ -4,6 +4,8 @@ import { useGlobalState } from '../../utils/stateContext'
 import {useParams} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
+// MATERIAL UI IMPORTS
+import {Button, TextField,InputLabel,Typography} from '@mui/material'
 
 const AddReview = ({id}) => {
     // Sets the initial values of the form, used also when form is clear/completed
@@ -49,6 +51,7 @@ const AddReview = ({id}) => {
         }
         console.log("Submit button clicked")
         setFormData(initialFormData)
+        navigate(`/products/${params.id}/reviewed`)
     }
 
     const addReview = (formData) => {
@@ -84,20 +87,22 @@ const AddReview = ({id}) => {
             <h1>What do you think?</h1>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Headiline</label>
-                    <input type="text" name="headline" id="headline" value={formData.headline} onChange={handleFormData} />
+                    <InputLabel>Headiline</InputLabel>
+                    <TextField type="text" name="headline" id="headline" value={formData.headline} onChange={handleFormData} size="small" fullWidth/>
                 </div>
                 <div>
-                    <label>Comment</label>
-                    <textarea type="text" name="comment" id="comment" value={formData.comment} onChange={handleFormData} />
+                    <InputLabel>Comment</InputLabel>
+                    <TextField type="text" name="comment" id="comment" value={formData.comment} onChange={handleFormData} multiline rows={5} fullWidth/>
                 </div>
                 <div>
-                    <label>Rating (between 1-5)</label>
-                    <input type="number" id="rating" name="rating" min="1" max="5" onChange={handleFormData}/>
+                    <InputLabel>Rating (between 1-5)</InputLabel>
+                    <TextField type="number" id="rating" name="rating" min="1" max="5" onChange={handleFormData} fullWidth/>
                 </div>
                 {/* <input type="hidden" name="productID" id="productID" value={params.id} ></input> */}
 
-                <input type="submit" value="Submit"></input>
+                
+                <Button type="submit" variant="contained" value="submit">Add Review</Button>
+
             </form>
         </>
     )

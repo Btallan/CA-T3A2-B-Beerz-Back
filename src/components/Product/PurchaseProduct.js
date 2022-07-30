@@ -5,6 +5,9 @@ import { useGlobalState } from '../../utils/stateContext';
 // Import State
 import { useState } from 'react';
 
+// MATERIAL UI IMPORTS
+import {Button, Typography} from '@mui/material'
+
 const OrderProduct = ({product}) => {
     // Calling in dispatch
     const {store, dispatch} = useGlobalState()
@@ -29,6 +32,7 @@ const OrderProduct = ({product}) => {
     // Variable and function to hane increment and decrement of order quantity
     //
     var quantity = formData.quantityOrdered
+    var totalCost = 0.00
     // Handle submit of form
     const handleIncrement = (event) => {
         event.preventDefault()
@@ -38,19 +42,23 @@ const OrderProduct = ({product}) => {
             ...formData,
             quantityOrdered: quantity
         })
+        totalCost = quantity * product.price
+        console.log(totalCost)
     }    
     
     const handleDecrement = (event) => {
         event.preventDefault()
-        if(!quantity === 0){
+        if(!quantity == 0){
             quantity --
-            // console.log(quantity)
             setFormData({
                 ...formData,
                 quantityOrdered: quantity
-            })
+            })            
         }
+        totalCost = quantity * product.price
+        console.log(totalCost)
     }
+
     // Need use effect to see the effect of the update, console.log, is ahead one step due to async
     // useEffect(() => console.log(formData),[formData])
 
@@ -74,17 +82,27 @@ const OrderProduct = ({product}) => {
         return nextID 
     }
 
+    
+
     return (
         <>
             {/* Form to book into event */}
-                <form onSubmit={addOrder}>
-                    <div>
-                        <button name ="add" value="1" onClick={handleIncrement}>+</button>
-                        <p>{quantity}</p>
-                        <button name="subtract" value="-1" onClick={handleDecrement}>-</button>
-                    </div>
-                <input type="submit" value="Order"></input>
+            <div>
+                <Typography variant='body1'>${product.price} ea</Typography>
+            </div>
+            <form onSubmit={addOrder}>
+                <div>
+                    <Button variant='contained' name ="add" value="1" onClick={handleIncrement}>+</Button>
+                    <Typography variant='body1'>{quantity}</Typography>
+                    <Button variant='contained' name="subtract" value="-1" onClick={handleDecrement}>-</Button>
+                </div>
+            <Button type="submit" variant="contained" value='Order'>Order</Button>
+
             </form>
+            <div>
+                <Typography variant='body1'>${quantity * product.price} total</Typography>
+            </div>
+
         </>
     )
 }

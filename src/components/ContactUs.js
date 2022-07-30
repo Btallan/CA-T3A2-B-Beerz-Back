@@ -1,6 +1,9 @@
 import { useGlobalState } from "../utils/stateContext";
 import { useState, useEffect } from "react";
 
+// MATERIAL UI IMPORTS
+import {Button, TextField,InputLabel} from '@mui/material'
+
 
 const ContactUs = () => {
     // Import context 
@@ -89,27 +92,28 @@ const ContactUs = () => {
                 :
                     <>
                         <div>
-                            <label>First Name</label>
-                            <input type="text" name="firstName" id="firstName" onChange={handleData} value={formData.firstName}></input>
-                            <label>Last Name</label>
-                            <input type="text" name="lastName" id="lastName" onChange={handleData} value={formData.lastName}></input>
+                            <InputLabel>First Name</InputLabel>
+                            <TextField type="text" name="firstName" id="firstName" onChange={handleData} value={formData.firstName}></TextField>
+                            <InputLabel>Last Name</InputLabel>
+                            <TextField type="text" name="lastName" id="lastName" onChange={handleData} value={formData.lastName}></TextField>
                         </div>
                         <div>
-                            <label>Email</label>
-                            <input type="email" name="email" id="email" onChange={handleData} value={formData.email}></input>
+                            <InputLabel>Email</InputLabel>
+                            <TextField type="email" name="email" id="email" onChange={handleData} value={formData.email}></TextField>
                         </div>
                         <div>
-                            <label>Mobile</label>
-                            <input type="text" name="mobile" id="mobile" onChange={handleData} value={formData.mobile}></input>
+                            <InputLabel>Mobile</InputLabel>
+                            <TextField type="text" name="mobile" id="mobile" onChange={handleData} value={formData.mobile}></TextField>
                         </div>
                     </>
                 }
                 <div>
-                    <label>Comment</label>
-                    <textarea type="text" name="message" id="message" onChange={handleData} value={formData.message}/>
-                </div>
+                    <InputLabel>Comment</InputLabel>
+                    <TextField type="text" name="message" id="message" onChange={handleData} value={formData.message} multiline rows={5} />
 
-                <input type="submit" value="Send It"></input>
+                </div>
+                <Button type="submit" variant="contained">Send It</Button>
+
 
             </form>
         </>

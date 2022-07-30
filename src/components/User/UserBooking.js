@@ -1,5 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../../utils/stateContext";
+
+// MATERIAL UI IMPORTS
+import {Button, Typography} from '@mui/material'
+
 const UserBooking = ({booking}) => {
         // Import context
         const {store, dispatch} = useGlobalState();
@@ -29,13 +33,13 @@ const UserBooking = ({booking}) => {
         }
     return(
         <>
-            <h4>{selectedEvent.title}</h4>
+            <Typography variant='h6'>{selectedEvent.title}</Typography>
             <img alt="Event" src={selectedEvent.eventIMG} style={{width: "200px"}}></img>
-            <p>{selectedEvent.time} - {selectedEvent.date}</p>
-            <p data-testid="ticketsBooked">Tickets booked: {booking.quantity}</p>
-            <p>Status: {booking.status ? "Upcoming " : "Cancelled"}</p>
-            <button onClick={cancelBooking} id="cancelButton" data-testid="cancelButton">Cancel Booking</button>
-            <button onClick={contactBrewery} data-testid="contactButton">Contact Brewery</button>
+            <Typography variant='body1'>{selectedEvent.time} - {selectedEvent.date}</Typography>
+            <Typography variant='body1' data-testid="ticketsBooked">Tickets booked: {booking.quantity}</Typography>
+            <Typography variant='body1'>Status: {booking.status ? "Upcoming " : "Cancelled"}</Typography>          
+            <Button onClick={cancelBooking} id="cancelButton" data-testid="cancelButton" variant="contained">Cancel Button</Button>
+            <Button onClick={contactBrewery} id="contactButton" variant="contained">Contact Brewery</Button>
             <hr></hr>  
         </>
     )
