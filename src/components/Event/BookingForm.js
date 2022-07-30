@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../../utils/stateContext';
 
 // MATERIAL UI IMPORTS
-import {Button, TextField,InputLabel,Typography} from '@mui/material'
+import {Button, TextField,InputLabel} from '@mui/material'
 
 
 const BookingForm = ({event}) => {

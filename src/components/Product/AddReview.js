@@ -5,7 +5,7 @@ import {useParams} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 // MATERIAL UI IMPORTS
-import {Button, TextField,InputLabel,Typography} from '@mui/material'
+import {Button, TextField,InputLabel} from '@mui/material'
 
 const AddReview = ({id}) => {
     // Sets the initial values of the form, used also when form is clear/completed
