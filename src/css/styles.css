@@ -1,0 +1,87 @@
+body{
+    background-color: skyblue;
+}
+
+.parentContainer{
+    background-color: blue;
+    display: flex;
+    flex-direction: row;    
+    flex-wrap: wrap;
+    max-width: 1200px;
+}
+
+.sideComp{
+    background-color: pink;
+}
+
+.blogIMG{
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    max-height: 500px;
+}
+
+.blogText{
+    text-align: center;
+    padding: 100px 10%;
+}
+
+
+.ageVerificationCSS{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.centerText{
+    text-align: center;
+    justify-content: center;
+}
+
+.BoxStyling{
+    display: "flex";
+    flex-direction: "row";
+    flex-wrap: "wrap";
+    justify-content: "space-around"
+}
+
+.spacer{
+    height: 150px;
+}
+
+.productContainer{
+    padding: 50px;   
+}
+
+.productHeading{
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.productIMG{
+    text-align: center;
+}
+
+.productTabs{
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.userInfo{
+    background-color: aliceblue;
+    padding: 50px;
+}
+
+
+.footer{
+    background-color: #1976d3;
+    height: 75px;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

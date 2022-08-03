@@ -2,7 +2,7 @@
 import { useGlobalState } from '../../utils/stateContext'
 
 // MATERIAL UI IMPORTS
-import {Button, Typography} from '@mui/material'
+import {Button, Typography, Container, Card} from '@mui/material'
 
 const UserTags = () => {
     // Calling dispatch into the component, so that we can update the global state
@@ -45,13 +45,18 @@ const UserTags = () => {
 
     return (
         <>
-            <Typography variant='h4'>User Flavour Tags</Typography>
-            {tagList.map(tag =>  
-                loggedInUser.flavourTags.includes(tag.id)?
-                    <Button variant='outlined' key={tag.id} onClick={onClick} value={tag.id} >{tag.tag}</Button>
-                    :    
-                    <Button variant='contained' key={tag.id} onClick={onClick} value={tag.id} >{tag.tag}</Button>
-            )}        
+            <div style={{margin: "50px 0"}}></div>
+            <Container> 
+                <Typography variant='h4' style={{textAlign: 'center', color: 'white'}}>User Flavour Tags</Typography>
+                <Card style={{textAlign: 'center', padding: "20px 0"}}>                    
+                    {tagList.map(tag =>  
+                        loggedInUser.flavourTags.includes(tag.id)?
+                            <Button variant='outlined' key={tag.id} onClick={onClick} value={tag.id} style={{margin: '0 10px', padding: "20px 30px"}}>{tag.tag}</Button>
+                            :    
+                            <Button variant='contained' key={tag.id} onClick={onClick} value={tag.id} style={{margin: '0 10px', padding: "20px 30px"}}>{tag.tag}</Button>
+                    )}       
+                </Card>
+            </Container> 
         </>
     )
 }

@@ -4,35 +4,36 @@ import { useState, useEffect } from "react";
 // MATERIAL UI IMPORTS
 import {Button, TextField,InputLabel} from '@mui/material'
 
-
 const ContactUs = () => {
     // Import context 
     const {store,dispatch} = useGlobalState()
     // Unpack store values
     const {loggedInUser, contactMessageList} = store
-    // console.log(contactMessageList)
+    
+    console.log("User")
+    console.log(loggedInUser)
 
     // Store the URL
     const url = window.location.href
+    console.log(url)
 
     // split the url up
     var urlSplits = url.split('/')
     var urlSplitsItems = urlSplits.length
-    // console.log(urlSplitsItems)
-
-    // get the last item in the array
-    var objectID = urlSplits[urlSplitsItems - 1]
-    // console.log(objectID)
-
-    // slice end of url for object type
-    var objectName = urlSplits[urlSplitsItems - 2]
-    // console.log(objectName)
-
+    console.log(urlSplitsItems)
+    if(urlSplitsItems[0] === "localhost:4000"){
+        // get the last item in the array
+        var objectID = urlSplits[urlSplitsItems - 1]
+        console.log(objectID)
+        // slice end of url for object type
+        var objectName = urlSplits[urlSplitsItems - 2]
+        console.log(objectName)
+    }
 
     const initialFormData = {
         id: 0,
         matter: objectName ? objectName : "Enquiry",
-        matterID: objectID ? parseInt(objectID) : this.id,
+        matterID: objectID ? parseInt(objectID) : 0,
         userID: loggedInUser? loggedInUser.id : 0,
         firstName: loggedInUser? loggedInUser.firstName : "",
         lastName: loggedInUser? loggedInUser.lastName : "",  

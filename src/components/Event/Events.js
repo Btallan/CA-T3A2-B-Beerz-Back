@@ -5,7 +5,8 @@ import { useGlobalState } from '../../utils/stateContext';
 import Event from './Event';
 
 // MATERIAL UI IMPORTS
-import {Typography} from '@mui/material'
+import {Typography, Container,Box} from '@mui/material'
+
 
 const Events = () => {    
     // Calling the store into the component through global state
@@ -14,11 +15,14 @@ const Events = () => {
     const {eventList} = store
 
     return (
-        <>
-            <Typography variant='h4' >Upcoming events</Typography>
-            {eventList.map(event =>
-                <Event key={event.id} event={event}/>    
-            )}
+        <>  <Container>
+            <Typography variant='h4' style={{textAlign: "center"}}>Upcoming events</Typography>
+            <Box style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-around"}}>
+                {eventList.map(event =>
+                    <Event key={event.id} event={event}/>    
+                )}
+            </Box>
+            </Container>
         </>
     )
 }

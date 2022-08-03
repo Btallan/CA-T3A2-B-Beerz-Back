@@ -4,7 +4,7 @@ import { useGlobalState } from "../../utils/stateContext";
 import UserBooking from "./UserBooking";
 
 // MATERIAL UI IMPORTS
-import {Typography} from '@mui/material'
+import {Typography, Container, Box} from '@mui/material'
 
 const UserEvents = () => {
     // Import context
@@ -21,23 +21,20 @@ const UserEvents = () => {
     });
     
     // Checking to see whether the user has any currently active events
-    var activeEvents = userBookings.some(booking => booking.status === true)
+    // var activeEvents = userBookings.some(booking => booking.status === true)
 
     return (
-        <>
-            {activeEvents? 
-                <>
-                    <Typography variant='h4'>My Upcoming Events</Typography>
-                    {/* Only show bookings which have not been cancelled */}
-                    {userBookings.map(booking => 
-                    !booking.status ? null :    <UserBooking key={booking.id} booking={booking}/> 
-                    )}
-                </>
-            :
-                    null
-            }
-
-        </>
+        <Container>
+                    <div style={{margin: "50px 0"}}></div>
+                    <Typography variant='h4' style={{color: 'white', textAlign: 'center'}}>My Upcoming Events</Typography>
+                    <hr></hr>
+                    <Box style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-around"}}>
+                        {/* Only show bookings which have not been cancelled */}
+                        {userBookings.map(booking => 
+                        !booking.status ? null : <UserBooking key={booking.id} booking={booking}/>
+                        )}
+                    </Box>
+        </Container>
     )
 }
 

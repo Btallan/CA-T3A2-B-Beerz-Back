@@ -52,6 +52,9 @@ import reducer from './utils/reducer'
 // Import state context
 import {StateContext} from './utils/stateContext'
 
+// Import CSS
+import '../src/css/styles.css'
+
 const App = () => {
   // Set initial states
   const initialState = {
@@ -152,6 +155,7 @@ const App = () => {
               <Route path="*" element={<NotFound />} />
               
             </Routes>
+            <div style={{height: "40px"}}></div>
             <Footer />
           </Router>
         </StateContext.Provider>

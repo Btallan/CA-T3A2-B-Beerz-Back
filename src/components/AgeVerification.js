@@ -38,15 +38,17 @@ const AgeVerification = () => {
     //         <Button variant="contained" value="No" onClick={updateAgeVerification}>No</Button>
     //     </>
     // )
-    return (
-        <Card variant="outlined">
-            <CardContent>
-                <Typography variant="h3">Welcome to Beerz</Typography>
-                <Typography variant="body1">Are you over the age of 18?</Typography>
-                <Button variant="contained" value="Yes" onClick={updateAgeVerification}>Yes</Button>
-                <Button variant="contained" value="No" onClick={updateAgeVerification}>No</Button>
-            </CardContent>
-        </Card>
+    return (        
+        <div className='ageVerificationCSS'>
+            <Card sx={{maxWidth: "800px", minHeight: "300px", justifyContent: 'center'}}>
+                <CardContent>
+                    <Typography variant="h3">Welcome to Beerz</Typography>
+                    <Typography variant="body1">Are you over the age of 18?</Typography>
+                    <Button variant="contained" value="Yes" onClick={updateAgeVerification} sx={{margin: '20px', padding: "3% 0", width: "30%"}}>Yes</Button>
+                    <Button variant="contained" value="No" onClick={updateAgeVerification} sx={{margin: '20px', padding: "3% 0", width: "30%"}}>No</Button>
+                </CardContent>
+            </Card>
+        </div>
     )
 }
 

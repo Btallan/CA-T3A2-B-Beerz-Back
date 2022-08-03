@@ -6,14 +6,23 @@ import UserPersonalInfo from './UserPersonalInfo'
 import UserTags from './UserTags';
 
 
+// MATERIAL UI IMPORTS
+import {Container} from '@mui/material'
+
+
 const UserProfile = () => {
 
     return (
         <>
-            <UserPersonalInfo />
-            <UserTags />
-            <UserEvents />
-            <UserOrders />
+
+                <Container>
+                    <UserPersonalInfo />
+                    <UserTags />
+                    <UserEvents />
+                    <UserOrders />
+                    <div style={{margin: "200px 0"}}></div>
+                </Container>
+
         </>
     )
 }

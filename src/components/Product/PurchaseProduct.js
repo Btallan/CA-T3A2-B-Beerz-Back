@@ -6,7 +6,7 @@ import { useGlobalState } from '../../utils/stateContext';
 import { useState } from 'react';
 
 // MATERIAL UI IMPORTS
-import {Button, Typography} from '@mui/material'
+import {Button, Typography, Box} from '@mui/material'
 
 const OrderProduct = ({product}) => {
     // Calling in dispatch
@@ -86,22 +86,23 @@ const OrderProduct = ({product}) => {
 
     return (
         <>
-            {/* Form to book into event */}
-            <div>
-                <Typography variant='body1'>${product.price} ea</Typography>
-            </div>
-            <form onSubmit={addOrder}>
+            <Box style={{textAlign: 'center'}}>
                 <div>
-                    <Button variant='contained' name ="add" value={1} onClick={handleIncrement}>+</Button>
-                    <Typography variant='body1'>{quantity}</Typography>
-                    <Button variant='contained' name="subtract" value={-1} onClick={handleDecrement}>-</Button>
+                    <Typography variant='h5'>${product.price} ea</Typography>
                 </div>
-            <Button type="submit" variant="contained" value='Order'>Order</Button>
+                <form onSubmit={addOrder} style={{padding: '20px'}}>
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                        <Button variant='contained' name ="add" value={1} onClick={handleIncrement} style={{margin: '10px', padding: "20px"}}>+</Button>
+                        <Typography variant='body1' style={{margin: '10px', padding: "20px"}}>{quantity}</Typography>
+                        <Button variant='contained' name="subtract" value={-1} onClick={handleDecrement} style={{margin: '10px', padding: "20px"}}>-</Button>
+                    </div>
+                <Button type="submit" variant="contained" value='Order'>Order</Button>
 
-            </form>
-            <div>
-                <Typography variant='body1'>${quantity * product.price} total</Typography>
-            </div>
+                </form>
+                <div>
+                    <Typography variant='h5'>${quantity * product.price} total</Typography>
+                </div>
+            </Box>
 
         </>
     )

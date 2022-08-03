@@ -2,7 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../../utils/stateContext";
 
 // MATERIAL UI IMPORTS
-import {Button, Typography} from '@mui/material'
+import {Button, Typography, Card, CardMedia, CardContent, CardHeader} from '@mui/material'
+
 
 const UserBooking = ({booking}) => {
         // Import context
@@ -33,14 +34,24 @@ const UserBooking = ({booking}) => {
         }
     return(
         <>
-            <Typography variant='h6'>{selectedEvent.title}</Typography>
-            <img alt="Event" src={selectedEvent.eventIMG} style={{width: "200px"}}></img>
-            <Typography variant='body1'>{selectedEvent.time} - {selectedEvent.date}</Typography>
-            <Typography variant='body1' data-testid="ticketsBooked">Tickets booked: {booking.quantity}</Typography>
-            <Typography variant='body1'>Status: {booking.status ? "Upcoming " : "Cancelled"}</Typography>          
-            <Button onClick={cancelBooking} id="cancelButton" data-testid="cancelButton" variant="contained">Cancel Button</Button>
-            <Button onClick={contactBrewery} id="contactButton" variant="contained">Contact Brewery</Button>
-            <hr></hr>  
+            
+                <Card sx={{maxWidth: '500px'}}>
+                    <CardHeader title={selectedEvent.title} sx={{textAlign: 'center'}}></CardHeader>
+
+
+                    <CardMedia component="img" image={selectedEvent.eventIMG} sx={{maxHeight: "200px"}}></CardMedia>
+
+                    <CardContent>
+                        <Typography variant='body1'>{selectedEvent.time} - {selectedEvent.date}</Typography>
+                        <Typography variant='body1' data-testid="ticketsBooked">Tickets booked: {booking.quantity}</Typography>
+                        <Typography variant='body1'>Status: {booking.status ? "Upcoming " : "Cancelled"}</Typography>          
+                    </CardContent>
+                    <CardContent>
+                        <Button onClick={cancelBooking} id="cancelButton" data-testid="cancelButton" variant="contained" style={{margin: '10px'}}>Cancel Button</Button>
+                        <Button onClick={contactBrewery} id="contactButton" variant="contained" style={{margin: '10px'}}>Contact Brewery</Button>
+                    </CardContent>
+                </Card>
+              
         </>
     )
 }

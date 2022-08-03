@@ -10,7 +10,7 @@ import PurchaseProduct from './PurchaseProduct'
 // import ProductTabs from './ProductTabs'
 
 // MATERIAL UI IMPORTS
-import {Tab, Box, Typography} from '@mui/material'
+import {Tab, Typography, Box, Container} from '@mui/material'
 
 import { TabPanel, TabContext, TabList } from '@mui/lab';
 import { useState } from 'react';
@@ -66,29 +66,40 @@ const ProductDetails = () => {
 
     return (
         <>
-            <Typography variant='h4'>{product.name}</Typography>
-            <img alt="Product IMG" src={product.productIMG} style={{height: "200px"}}></img>     
-            <TabContext value={value}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <TabList onChange={handleChange} aria-label="lab API tabs example">
-                    <Tab label="Description" value="1" />
-                    <Tab label="Brewing Process" value="2" />
-                    <Tab label="Reviews" value="3" />
-                    {loggedInUser && <Tab label="Purchase" value="4" />} 
-                </TabList>
-            </Box>
-            <TabPanel value="1"><ProductDescription product={product}/></TabPanel>
-            <TabPanel value="2"><ProductProcess product={product}/></TabPanel>
-            <TabPanel value="3"><Reviews product={product}/></TabPanel>
-            {/* Purchasing Component */}
-            {loggedInUser ?
-                <TabPanel value="4"><PurchaseProduct product={product}/></TabPanel>
-            :
-                    null
-            }
-            </TabContext>
+                {/* <div style={{height: "20px"}}></div> */}
+            <Container className='productContainer'>
+                <Box>
+                    <div className='productHeading'>
+                        <Typography variant='h4' style={{textAlign: 'center'}}>{product.name}</Typography>
+                    </div>
 
+                    <div className='productIMG'>
+                        <img alt="Product IMG" src={product.productIMG} style={{height: "400px"}}></img>    
+                    </div> 
 
+                    <div className='productTabs'>                        
+                        <TabContext value={value}>
+                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                            <TabList onChange={handleChange} aria-label="lab API tabs example" variant="scrollable">
+                                <Tab label="Description" value="1" />
+                                <Tab label="Brewing Process" value="2" />
+                                <Tab label="Reviews" value="3" />
+                                {loggedInUser && <Tab label="Purchase" value="4" />} 
+                            </TabList>
+                        </Box>
+                        <TabPanel value="1"><ProductDescription product={product}/></TabPanel>
+                        <TabPanel value="2"><ProductProcess product={product}/></TabPanel>
+                        <TabPanel value="3"><Reviews product={product}/></TabPanel>
+                        {/* Purchasing Component */}
+                        {loggedInUser ?
+                            <TabPanel value="4"><PurchaseProduct product={product}/></TabPanel>
+                        :
+                                null
+                        }
+                        </TabContext>
+                    </div>
+                </Box>
+            </Container>
         </>
     )
 

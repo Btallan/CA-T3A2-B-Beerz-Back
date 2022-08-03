@@ -8,7 +8,8 @@ import Products from '../components/Product/Products'
 import Events from '../components/Event/Events'
 
 // MATERIAL UI IMPORTS
-import {Typography} from '@mui/material'
+// import {Typography} from '@mui/material'
+import WhoAreWe from './WhoAreWe';
 
 const Home = () => {
     const {store} = useGlobalState()
@@ -17,10 +18,17 @@ const Home = () => {
 
     return (
         <>
-            <Typography variant='h3'>Welcome to Beerz Home</Typography>
-            <img alt="Hero" style={{width: "1000px"}} src="https://www.wearegoldcoast.com.au/wp-content/uploads/2020/12/feature.jpg"></img>
+            <div id='hero-container'>
+                {/* <Typography variant='h3' style={{textAlign: 'center'}}>Welcome to Beerz Home</Typography> */}
+                <img alt="Hero" style={{width: "100%"}} src="https://www.wearegoldcoast.com.au/wp-content/uploads/2020/12/feature.jpg"></img>
+            </div>
+            <div className='spacer'></div>
             <Products />
+            <div className='spacer'></div>
+            <WhoAreWe />
+            <div className='spacer'></div>
             <Events />
+            <div className='spacer'></div>
         </>
     )
 }

@@ -2,7 +2,7 @@ import { useGlobalState } from "../../utils/stateContext";
 import Product from './Product'
 
 // MATERIAL UI IMPORTS
-import {Typography} from '@mui/material'
+import {Typography, Box, Container} from '@mui/material'
 
 const Products = () => {
     // Calling the store into the component through global state
@@ -12,10 +12,16 @@ const Products = () => {
 
     return (
         <>
-            <Typography variant="h4" >View our product line!</Typography>
-            {productList.map(product => 
-                <Product key={product.id} product={product} />
-            )}
+            <Container>
+                <div style={{height: "50px"}}></div>
+                <Typography variant="h4" style={{textAlign: "center"}}>Our product line!</Typography>
+                <hr></hr>
+                <Box style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-around"}}>
+                    {productList.map(product => 
+                        <Product key={product.id} product={product} />
+                    )}
+                </Box>
+            </Container>
         </>
     )
 }

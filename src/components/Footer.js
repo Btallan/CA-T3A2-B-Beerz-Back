@@ -1,15 +1,20 @@
-// import {Link} from 'react-router-dom'
-import {Link, Typography} from '@mui/material'
+import {Link} from 'react-router-dom'
+
+
+// MATERIAL UI IMPORTS
+import {Typography, Box, Container} from '@mui/material'
 
 
 const Footer = () => {
     return (
-        <>
-            <Typography variant="h6">Beers ©</Typography>
-            {/* <Link to="/contact">Contact Us</Link> */}
-
-            <Link href='/contact'>Contact Us</Link>
-        </>
+        <div className='footer'>
+            <Box>
+                <Container>
+                    <Typography variant="h6">Beers ©</Typography>
+                    <Link to='/contact' >Contact Us</Link>
+                </Container>
+            </Box>
+        </div>
     )
 }
 

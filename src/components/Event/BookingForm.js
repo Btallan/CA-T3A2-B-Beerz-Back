@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../../utils/stateContext';
 
 // MATERIAL UI IMPORTS
-import {Button, TextField,InputLabel} from '@mui/material'
+import {Button, TextField,InputLabel, MenuItem} from '@mui/material'
 
 
 const BookingForm = ({event}) => {
@@ -47,6 +47,89 @@ const BookingForm = ({event}) => {
         return nextID 
     }
 
+    const ticktsNumbers = [
+        {
+          value: '1',
+          label: '1',
+        },
+        {
+          value: '2',
+          label: '2',
+        },
+        {
+          value: '3',
+          label: '3',
+        },
+        {
+          value: '4',
+          label: '4',
+        },
+        {
+          value: '5',
+          label: '5',
+        },
+        {
+          value: '6',
+          label: '6',
+        },
+        {
+          value: '7',
+          label: '7',
+        },
+        {
+          value: '8',
+          label: '8',
+        },
+        {
+          value: '9',
+          label: '9',
+        },
+        {
+          value: '10',
+          label: '10',
+        },
+        {
+          value: '11',
+          label: '11',
+        },
+        {
+          value: '12',
+          label: '12',
+        },
+        {
+          value: '13',
+          label: '13',
+        },
+        {
+          value: '14',
+          label: '14',
+        },
+        {
+          value: '15',
+          label: '15',
+        },
+        {
+          value: '16',
+          label: '16',
+        },
+        {
+          value: '17',
+          label: '17',
+        },
+        {
+          value: '18',
+          label: '18',
+        },
+        {
+          value: '19',
+          label: '19',
+        },
+        {
+          value: '20',
+          label: '20',
+        }
+      ];
+
     return (
         <>
             {/* Form to book into event */}
@@ -54,7 +137,11 @@ const BookingForm = ({event}) => {
 
                 <div>
                     <InputLabel>How many tickets would you like to book?</InputLabel>
-                    <TextField type="number" id="tickets" name="tickets" min="1" max="20" />
+                    <TextField select type="number" id="tickets" name="tickets" size="small" >
+                        {ticktsNumbers.map((amount) => (
+                            <MenuItem key={amount.value} value={amount.value}>{amount.label}</MenuItem>
+                        ))}
+                    </TextField>
                 </div>
                 <Button type="submit" variant="contained">Book In</Button>
 
