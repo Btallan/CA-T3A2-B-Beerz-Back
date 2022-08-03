@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom'
 
 // MATERIAL UI IMPORTS
 import Button from '@mui/material/Button';
-import {Typography, Card, CardContent} from '@mui/material'
+import {Typography, Card, CardContent, Container} from '@mui/material'
 
 
 
@@ -39,16 +39,16 @@ const AgeVerification = () => {
     //     </>
     // )
     return (        
-        <div className='ageVerificationCSS'>
-            <Card sx={{maxWidth: "800px", minHeight: "300px", justifyContent: 'center'}}>
+        <Container >
+            <Card className='welcomeCards'>
                 <CardContent>
                     <Typography variant="h3">Welcome to Beerz</Typography>
                     <Typography variant="body1">Are you over the age of 18?</Typography>
-                    <Button variant="contained" value="Yes" onClick={updateAgeVerification} sx={{margin: '20px', padding: "3% 0", width: "30%"}}>Yes</Button>
-                    <Button variant="contained" value="No" onClick={updateAgeVerification} sx={{margin: '20px', padding: "3% 0", width: "30%"}}>No</Button>
+                    <Button variant="contained" value="Yes" onClick={updateAgeVerification} className='welcomeButtons' sx={{margin: '10px'}}>Yes</Button>
+                    <Button variant="contained" value="No" onClick={updateAgeVerification} className='welcomeButtons' sx={{margin: '10px'}}>No</Button>
                 </CardContent>
             </Card>
-        </div>
+        </Container>
     )
 }
 

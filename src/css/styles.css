@@ -75,6 +75,65 @@ body{
 }
 
 
+
+
+
+.welcomeCards{
+   text-align: center;
+   margin-top: 100px;
+   padding: 20px;
+}
+
+
+.textFieldInputColour{
+    background-color: lightgray;
+    box-shadow: 1px 2px #94a197;
+}
+
+.textFieldInputLong{
+    width: 100%;
+    margin: 20px 0;
+}
+
+.textFieldInputShort{
+    width: 45%;
+}
+
+.shortInputDiv{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.welcomeButtons{
+    padding: 5%;
+    width: 30%;    
+}
+
+@media (max-width: 600px){
+    .textFieldInputShort{
+        background-color: lightgray;
+        width: 100%; 
+    }
+    
+    .textFieldInputShortINDV{
+        margin-bottom: 20px;
+    }
+
+    .welcomeButtons{
+        padding: 5%;
+        width: 80%;    
+    }
+
+}
+
+.cardTitles{
+    margin: 0 0 30px 0;
+}
+
+
+
 .footer{
     background-color: #1976d3;
     height: 75px;
