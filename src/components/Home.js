@@ -1,5 +1,5 @@
 // Import global context
-import { useGlobalState } from '../utils/stateContext';
+// import { useGlobalState } from '../utils/stateContext';
 
 // Import products components
 import Products from '../components/Product/Products'
@@ -12,8 +12,8 @@ import Events from '../components/Event/Events'
 import WhoAreWe from './WhoAreWe';
 
 const Home = () => {
-    const {store} = useGlobalState()
-    const {loggedInUser} = store
+    // const {store} = useGlobalState()
+    // const {loggedInUser} = store
     // console.log(loggedInUser)
 
     return (

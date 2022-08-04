@@ -73,8 +73,8 @@ const ProductDetails = () => {
                         <Typography variant='h4' style={{textAlign: 'center'}}>{product.name}</Typography>
                     </div>
 
-                    <div className='productIMG'>
-                        <img alt="Product IMG" src={product.productIMG} style={{height: "400px"}}></img>    
+                    <div className='centerIMG'>
+                        <img alt="Product IMG" src={product.productIMG} className='productIMG'></img>    
                     </div> 
 
                     <div className='productTabs'>                        

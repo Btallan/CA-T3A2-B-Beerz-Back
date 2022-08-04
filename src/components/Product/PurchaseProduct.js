@@ -6,7 +6,12 @@ import { useGlobalState } from '../../utils/stateContext';
 import { useState } from 'react';
 
 // MATERIAL UI IMPORTS
-import {Button, Typography, Box} from '@mui/material'
+import {Button, Typography, Box, Container} from '@mui/material'
+
+// Import Material UI Icons
+import { Add } from '@mui/icons-material';
+import RemoveIcon from '@mui/icons-material/Remove';
+
 
 const OrderProduct = ({product}) => {
     // Calling in dispatch
@@ -86,24 +91,36 @@ const OrderProduct = ({product}) => {
 
     return (
         <>
-            <Box style={{textAlign: 'center'}}>
-                <div>
-                    <Typography variant='h5'>${product.price} ea</Typography>
-                </div>
-                <form onSubmit={addOrder} style={{padding: '20px'}}>
-                    <div style={{display: 'flex', justifyContent: 'center'}}>
-                        <Button variant='contained' name ="add" value={1} onClick={handleIncrement} style={{margin: '10px', padding: "20px"}}>+</Button>
-                        <Typography variant='body1' style={{margin: '10px', padding: "20px"}}>{quantity}</Typography>
-                        <Button variant='contained' name="subtract" value={-1} onClick={handleDecrement} style={{margin: '10px', padding: "20px"}}>-</Button>
-                    </div>
-                <Button type="submit" variant="contained" value='Order'>Order</Button>
+            <Container style={{textAlign: 'center'}}>
+
+                <Box>
+                    <Typography variant='h5' sx={{margin: '0 0 20px 0'}}>${product.price} ea</Typography>
+                </Box>
+
+                <form onSubmit={addOrder}>
+
+                    <Box style={{display: 'flex', justifyContent: 'center'}}>
+
+                        <Button name ="add" variant='contained' value={1} onClick={handleIncrement} sx={{margin: '10px', padding: '20px'}}>
+                            <Add />                 
+                        </Button>
+
+                        <Typography variant='body1' sx={{margin: '30px', padding: '20px'}}>{quantity}</Typography>
+
+                        <Button name="subtract" variant='contained' value={-1} onClick={handleDecrement} sx={{margin: '10px', padding: '20px'}}>
+                            <RemoveIcon />
+                        </Button>
+
+                    </Box>
+
+                <Button type="submit" variant="contained" value='Order' sx={{margin: '20px 0'}}>Order</Button>
 
                 </form>
-                <div>
-                    <Typography variant='h5'>${quantity * product.price} total</Typography>
-                </div>
-            </Box>
 
+                <Box>
+                    <Typography variant='h5' sx={{margin: '30px 0 0 0'}}>${quantity * product.price} total</Typography>
+                </Box>
+            </Container>
         </>
     )
 }

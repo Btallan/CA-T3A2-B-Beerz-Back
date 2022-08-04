@@ -25,7 +25,7 @@ body{
     .spacer{
         height: 25px;
     }
-    .navSpacer{
+    .footerSpacer{
         height: 70px;
     }
 }
@@ -72,14 +72,37 @@ body{
 }
 
 .productIMG{
+    width: 400px;
+}
+
+.centerIMG{
     text-align: center;
 }
+
 
 .productTabs{
     background-color: aliceblue;
     padding: 20px;
     border-radius: 10px;
 }
+
+
+.purchaseButton{
+    background-color: #1976d3;
+    margin: 40px;
+}
+
+.purchaseHeadings{
+    margin: 20px 0;
+}
+
+
+@media (max-width: 768px){
+    .productIMG{
+        width: 280px;
+    }
+}
+
 
 /* ############################################################################################################################################################## */
 /* User Profile Styles */

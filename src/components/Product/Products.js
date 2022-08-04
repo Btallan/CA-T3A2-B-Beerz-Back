@@ -13,7 +13,7 @@ const Products = () => {
     return (
         <>
             <Container>
-                <div style={{height: "50px"}}></div>
+                <div className="spacer"></div>
                 <Typography variant="h4" style={{textAlign: "center"}}>Our product line!</Typography>
                 <hr></hr>
                 <Box style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-around"}}>
@@ -22,6 +22,7 @@ const Products = () => {
                     )}
                 </Box>
             </Container>
+            {/* <div className="footerSpacer"></div> */}
         </>
     )
 }
