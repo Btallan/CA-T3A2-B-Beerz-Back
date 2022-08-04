@@ -5,7 +5,7 @@ import {useParams} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 // MATERIAL UI IMPORTS
-import {Button, TextField,InputLabel} from '@mui/material'
+import {Button, TextField, Container, Card, Typography} from '@mui/material'
 
 const AddReview = ({id}) => {
     // Sets the initial values of the form, used also when form is clear/completed
@@ -81,29 +81,33 @@ const AddReview = ({id}) => {
         const nextID = sortData[sortData.length -1].id +1
         return nextID 
     }
-    
+
+        
     return (
         <>
-            <h1>What do you think?</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <InputLabel>Headiline</InputLabel>
-                    <TextField type="text" name="headline" id="headline" value={formData.headline} onChange={handleFormData} size="small" fullWidth/>
-                </div>
-                <div>
-                    <InputLabel>Comment</InputLabel>
-                    <TextField type="text" name="comment" id="comment" value={formData.comment} onChange={handleFormData} multiline rows={5} fullWidth/>
-                </div>
-                <div>
-                    <InputLabel>Rating (between 1-5)</InputLabel>
-                    <TextField type="number" id="rating" name="rating" min="1" max="5" onChange={handleFormData} fullWidth/>
-                </div>
-                {/* <input type="hidden" name="productID" id="productID" value={params.id} ></input> */}
+            <Container>
+                <Card className='welcomeCards'>
+                    <Typography variant='h4'>What do you think?</Typography>
+                    <form onSubmit={handleSubmit}>
 
-                
-                <Button type="submit" variant="contained" value="submit">Add Review</Button>
+                        <div className='textFieldInputLong'>
+                            <TextField label='Headiline' type="text" name="headline" id="headline" value={formData.headline} onChange={handleFormData} size="small" fullWidth className='textFieldInputColour'/>
+                        </div>
 
-            </form>
+                        <div className='textFieldInputLong'>
+                            <TextField label='Comment' type="text" name="comment" id="comment" value={formData.comment} onChange={handleFormData} multiline rows={5} fullWidth className='textFieldInputColour'/>
+                        </div>
+
+                        <div className='textFieldInputLong'>
+                            <TextField label='Rating (between 1-5)' InputProps={{inputProps :{max: 5, min:1}}} type="number" id="rating" name="rating" min="1" max="5" onChange={handleFormData} fullWidth className='textFieldInputColour'/>
+                        </div>
+
+                        
+                        <Button type="submit" variant="contained" value="submit">Add Review</Button>
+
+                    </form>
+                </Card>
+            </Container>
         </>
     )
 }

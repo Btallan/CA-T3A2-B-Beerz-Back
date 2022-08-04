@@ -33,7 +33,7 @@
         "username": "ben",
         "dob": "07/10/1995",
         "password": "123",
-        "flavourTags": [1,3,4],
+        "flavourTags": [],
         "address": "78 Seagull Dr, Burleigh Heads, 4220, QLD "
     }
 ]

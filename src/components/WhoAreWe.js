@@ -11,7 +11,7 @@ const WhoAreWe = () => {
                     <Grid item>
                         <img alt="Hops being poured" className="blogIMG" src='https://images.unsplash.com/photo-1644940642314-a310d49a4750?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' />
                     </Grid>
-                    <Grid item xs className='blogText'>
+                    <Grid item md className='blogText'>
                         <Typography variant='h4' className='centerText'>Who We Are!</Typography>
                         <Typography variant='body1'>                    
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non ultrices sapien. Morbi cursus tortor eu dapibus mollis. 

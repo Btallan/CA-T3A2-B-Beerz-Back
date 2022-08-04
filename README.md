@@ -76,3 +76,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 Images used have been sourced from unsplash.com
 
 - Hero Image:
+
+- Beer Being Poured in About Us credit to:
+  Photo by <a href="https://unsplash.com/@barncreative?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Fábio Alves</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

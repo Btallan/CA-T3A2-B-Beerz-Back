@@ -2,7 +2,7 @@ import { useGlobalState } from "../utils/stateContext";
 import { useState, useEffect } from "react";
 
 // MATERIAL UI IMPORTS
-import {Button, TextField,InputLabel} from '@mui/material'
+import {Button, TextField, Container, Card} from '@mui/material'
 
 const ContactUs = () => {
     // Import context 
@@ -10,17 +10,17 @@ const ContactUs = () => {
     // Unpack store values
     const {loggedInUser, contactMessageList} = store
     
-    console.log("User")
-    console.log(loggedInUser)
+    // console.log("User")
+    // console.log(loggedInUser)
 
     // Store the URL
     const url = window.location.href
-    console.log(url)
+    // console.log(url)
 
     // split the url up
     var urlSplits = url.split('/')
     var urlSplitsItems = urlSplits.length
-    console.log(urlSplitsItems)
+    // console.log(urlSplitsItems)
     if(urlSplitsItems[0] === "localhost:4000"){
         // get the last item in the array
         var objectID = urlSplits[urlSplitsItems - 1]
@@ -55,7 +55,7 @@ const ContactUs = () => {
             [event.target.name]: event.target.value
         })
     }
-    useEffect(() => console.log(formData),[formData])
+    // useEffect(() => console.log(formData),[formData])
 
     const clearMessage = () => {
         setFormData(initialFormData)
@@ -87,36 +87,42 @@ const ContactUs = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                {loggedInUser? 
-                    null 
-                :
-                    <>
-                        <div>
-                            <InputLabel>First Name</InputLabel>
-                            <TextField type="text" name="firstName" id="firstName" onChange={handleData} value={formData.firstName}></TextField>
-                            <InputLabel>Last Name</InputLabel>
-                            <TextField type="text" name="lastName" id="lastName" onChange={handleData} value={formData.lastName}></TextField>
-                        </div>
-                        <div>
-                            <InputLabel>Email</InputLabel>
-                            <TextField type="email" name="email" id="email" onChange={handleData} value={formData.email}></TextField>
-                        </div>
-                        <div>
-                            <InputLabel>Mobile</InputLabel>
-                            <TextField type="text" name="mobile" id="mobile" onChange={handleData} value={formData.mobile}></TextField>
-                        </div>
-                    </>
-                }
-                <div>
-                    <InputLabel>Comment</InputLabel>
-                    <TextField type="text" name="message" id="message" onChange={handleData} value={formData.message} multiline rows={5} />
+            <Container>
+                <Card className='welcomeCards'>
+                    <form onSubmit={handleSubmit}>
+                        {loggedInUser? 
+                            null 
+                        :
+                            <>                                
+                                <div className='shortInputDiv'>
+                                    <div className='textFieldInputShort textFieldInputShortINDV'>
+                                        <TextField fullWidth  label='First Name' type="text" name="firstName" id="firstName" value={formData.firstName} onChange={handleData} className='textFieldInputColour'></TextField>
+                                    </div>
+                                    <div className='textFieldInputShort'>
+                                        <TextField fullWidth  label='Last Name' type="text" name="lastName" id="lastName" value={formData.lastName} onChange={handleData} className='textFieldInputColour'></TextField>
+                                    </div>
+                                </div>  
 
-                </div>
-                <Button type="submit" variant="contained">Send It</Button>
+                                <div className='textFieldInputLong'>
+                                    <TextField fullWidth label='Email' type="email" name="email" id="email" value={formData.email} onChange={handleData} className='textFieldInputColour'></TextField>
+                                </div>
+
+                                <div className='textFieldInputLong'>
+                                    <TextField fullWidth  label='Mobile' type="text" name="mobile" id="mobile" value={formData.mobile} onChange={handleData} className='textFieldInputColour'></TextField>
+                                </div>
+
+                            </>
+                        }
+                        <div className='textFieldInputLong'>
+                            <TextField label='Comment' type="text" name="message" id="message" onChange={handleData} value={formData.message} multiline fullWidth rows={5} className='textFieldInputColour'/>
+
+                        </div>
+                        <Button type="submit" variant="contained">Send It</Button>
 
 
-            </form>
+                    </form>
+                </Card>
+            </Container>
         </>
     )
 }
