@@ -21,19 +21,19 @@ const ContactUs = () => {
     var urlSplits = url.split('/')
     var urlSplitsItems = urlSplits.length
     // console.log(urlSplitsItems)
-    if(urlSplitsItems[0] === "localhost:4000"){
-        // get the last item in the array
-        var objectID = urlSplits[urlSplitsItems - 1]
-        console.log(objectID)
-        // slice end of url for object type
-        var objectName = urlSplits[urlSplitsItems - 2]
-        console.log(objectName)
-    }
+    
+    // get the last item in the array
+    var objectID = urlSplits[urlSplitsItems - 1]
+    // console.log(objectID)
+    // slice end of url for object type
+    var objectName = urlSplits[urlSplitsItems - 2]
+    // console.log(objectName)
 
     const initialFormData = {
         id: 0,
-        matter: objectName ? objectName : "Enquiry",
-        matterID: objectID ? parseInt(objectID) : 0,
+        matter: "Enquiry",
+        matterID: 0,
+
         userID: loggedInUser? loggedInUser.id : 0,
         firstName: loggedInUser? loggedInUser.firstName : "",
         lastName: loggedInUser? loggedInUser.lastName : "",  
@@ -41,16 +41,33 @@ const ContactUs = () => {
         mobile: loggedInUser? loggedInUser.mobile : "",
         message: ""
     }
-    // console.log(initialFormData)
 
     // Initial state 
     const [formData, setFormData] = useState(initialFormData)
 
+    if(objectName === 'contact'){
+        var matterName = 'Eqnuiry'
+    } else if(objectName === 'events'){
+        var matterName = 'Event'
+    } else if(objectName === 'order'){
+        var matterName = 'Order'
+    }else{
+        var matterName = 'Eqnuiry'
+    }
+
+    if(objectID === 'contact'){
+        objectID = 0;
+    }
+
+
+    // console.log(initialFormData)
   
     const handleData = (event) => {
         event.preventDefault()
         setFormData({
             ...formData,
+            matter: matterName,
+            matterID: objectID,
             id: nextID(contactMessageList),
             [event.target.name]: event.target.value
         })

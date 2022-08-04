@@ -31,10 +31,8 @@ const UserProfile = () => {
 
     // Store and collate the user events
     const userEvents = bookingList.filter(booking => parseInt(booking.userID) === parseInt(loggedInUser.id))
-    console.log(userEvents)
     // Checks length of returned bookings
     var activeUserBookings = !userEvents.length
-    console.log(activeUserBookings)
 
     return (
         <>
