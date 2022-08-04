@@ -28,15 +28,16 @@ const Reviews = ({product}) => {
         )
         
         var totalScore = ratingArray.reduce((a,b) => a +b, 0)
-        var average = totalScore / numberReviews
+        var average = 0
+        if(numberReviews){
+            var average = totalScore / numberReviews
+        }
+        console.log(average)
+        
 
         if(average === 0){
-            return <p>Product has not yet been reviewed</p>
+            return "Product has not yet been reviewed"
         } else {
-            // console.log(productReviews)
-            // console.log(ratingArray)
-            // console.log(totalScore)
-            // console.log(average)
             return average.toFixed(1)
         }
     }
