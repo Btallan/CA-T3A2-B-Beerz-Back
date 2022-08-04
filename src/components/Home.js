@@ -14,7 +14,7 @@ import WhoAreWe from './WhoAreWe';
 const Home = () => {
     const {store} = useGlobalState()
     const {loggedInUser} = store
-    console.log(loggedInUser)
+    // console.log(loggedInUser)
 
     return (
         <>

@@ -11,7 +11,7 @@ const UserProfile = () => {
     // Unpacking the store
     const {loggedInUser} = store
 
-    console.log(loggedInUser)
+    // console.log(loggedInUser)
 
     return (
         <>

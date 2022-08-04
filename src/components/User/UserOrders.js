@@ -26,7 +26,7 @@ const UserOrders = () => {
     // console.log(userOrders)
     // console.log(activeUserOrders)
 
-    return (
+    return (       
         <Container >
             <Typography variant='h4' style={{textAlign: 'center', color: 'white'}}>My Orders</Typography>
             <Card>
@@ -46,8 +46,7 @@ const UserOrders = () => {
                             <TableCell>{productList.find(product => parseInt(product.id) === parseInt(order.productID)).name}</TableCell>
                             <TableCell>{order.quantityOrdered}</TableCell>
                             <TableCell>{order.status}</TableCell>
-                            <TableCell><Button component={Link} to={`/contact/order/${order.id}`} id="contactButton" variant="contained">Contact Brewery</Button>
-</TableCell>                         
+                            <TableCell><Button component={Link} to={`/contact/order/${order.id}`} id="contactButton" variant="contained">Contact Brewery</Button></TableCell>                         
                         </TableRow>
                         )}
                     </TableBody>

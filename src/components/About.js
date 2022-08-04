@@ -77,7 +77,7 @@ const About = () => {
                 <Typography variant='h4' className='centerText blogTitle'>We invite you to become a part of our story. As you drink one of our handcrafted beers, be sure to ask "What's New?"</Typography>
             </Container>
 
-            <div className='navSpacer'></div>
+            <div className='footerSpacer'></div>
         </>
     )
 }
