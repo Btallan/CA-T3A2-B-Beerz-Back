@@ -5,9 +5,8 @@ import logo from '../images/beerz-logo3.png'
 
 
 // MATERIAL UI IMPORTS
-import {AppBar, Toolbar,Tabs,Tab, Grid, Typography, Box, Button, useTheme, useMediaQuery} from '@mui/material'
+import {AppBar, Toolbar,Tabs,Tab, Grid, Box, Button, useTheme, useMediaQuery} from '@mui/material'
 
-import LocalDrinkIcon from '@mui/icons-material/LocalDrink';
 import VerificationDrawer from './VerificationDrawer'
 
 

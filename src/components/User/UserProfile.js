@@ -36,7 +36,7 @@ const UserProfile = () => {
 
     return (
         <>
-
+                <div className='spacer'></div>
                 <Container>
                     <UserPersonalInfo />
                     <UserTags />

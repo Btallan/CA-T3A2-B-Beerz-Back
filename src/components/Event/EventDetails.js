@@ -8,7 +8,7 @@ import {useParams} from 'react-router-dom'
 import BookingForm from './BookingForm';
 
 // MATERIAL UI IMPORTS
-import {Typography} from '@mui/material'
+import {CardContent, CardHeader, Typography, Container, Card, CardMedia} from '@mui/material'
 
 
 const Event = () => {    
@@ -28,15 +28,27 @@ const Event = () => {
 
     return (
         <>
-            <Typography variant='h5'>{selectedEvent.title}</Typography>
-            <img alt="Event IMG" src={selectedEvent.eventIMG} style={{height: "200px"}}></img>
-            <Typography variant='body1'>{selectedEvent.date} - {selectedEvent.time}</Typography>
-            <Typography variant='body1'>{selectedEvent.description}</Typography>
-            <BookingForm event={selectedEvent} loggedInUser={loggedInUser} bookingList={bookingList} />
-            
+            <div className='spacer'></div>
+            <Container>
+                <Card>
+                    <CardHeader title={selectedEvent.title}></CardHeader>
+                    <CardMedia component='img' image={selectedEvent.eventIMG} sx={{maxHeight: "400px"}}></CardMedia>
+                    <CardContent>
+                        <Typography variant='body1'>{selectedEvent.date} - {selectedEvent.time}</Typography>
+                        <hr></hr>
+                        <Typography variant='body1'>{selectedEvent.description}</Typography>
+                    </CardContent>
+                    <CardContent>
+                        <BookingForm event={selectedEvent} loggedInUser={loggedInUser} bookingList={bookingList} />
+                    </CardContent>
+                </Card>    
+            </Container>
+            <div className='footerSpacer'></div>            
         </>
     )
 }
 
 export default Event;
+
+
 

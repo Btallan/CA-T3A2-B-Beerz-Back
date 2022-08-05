@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../../utils/stateContext';
 
 // MATERIAL UI IMPORTS
-import {Button, TextField,InputLabel, MenuItem} from '@mui/material'
+import {Button, TextField,InputLabel, MenuItem, Grid} from '@mui/material'
 
 
 const BookingForm = ({event}) => {
@@ -132,20 +132,25 @@ const BookingForm = ({event}) => {
 
     return (
         <>
-            {/* Form to book into event */}
-                <form onSubmit={handleSubmit}>
+          <Grid container rowSpacing={1} justifyContent='center' justify='center' textAlign='center'>
+              {/* Form to book into event */}
+            <form onSubmit={handleSubmit}>
 
-                <div>
-                    <InputLabel>How many tickets would you like to book?</InputLabel>
-                    <TextField select type="number" id="tickets" name="tickets" size="small" >
-                        {ticktsNumbers.map((amount) => (
-                            <MenuItem key={amount.value} value={amount.value}>{amount.label}</MenuItem>
-                        ))}
-                    </TextField>
-                </div>
-                <Button type="submit" variant="contained">Book In</Button>
-
+              <Grid item sx={{margin: '20px 0'}}>
+                <InputLabel>Select amount of tickets</InputLabel>
+              </Grid>
+              <Grid item sx={{margin: '20px 0'}}>
+                <TextField select type="number" id="tickets" name="tickets" size="small" >
+                    {ticktsNumbers.map((amount) => (
+                        <MenuItem key={amount.value} value={amount.value}>{amount.label}</MenuItem>
+                    ))}
+                </TextField>
+                </Grid>
+                <Grid item sx={{margin: '20px 0'}}>
+                  <Button type="submit" variant="contained">Book In</Button>
+                </Grid>
             </form>
+          </Grid>
         </>
     )
 }

@@ -23,7 +23,7 @@ body{
 
 @media (max-width: 768px){
     .spacer{
-        height: 25px;
+        height: 70px;
     }
     .footerSpacer{
         height: 70px;
@@ -108,11 +108,17 @@ body{
 /* ############################################################################################################################################################## */
 .userInfo{
     background-color: aliceblue;
-    padding: 50px;
+    padding: 20px;
 }
 
 .tagButtons{
     width: 100px;
+}
+
+.userImage{
+    margin: auto;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 1024px){

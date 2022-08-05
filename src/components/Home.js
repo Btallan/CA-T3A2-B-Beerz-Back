@@ -18,6 +18,7 @@ const Home = () => {
 
     return (
         <>
+            <div className='spacer'></div>
             <div id='hero-container'>
                 {/* <Typography variant='h3' style={{textAlign: 'center'}}>Welcome to Beerz Home</Typography> */}
                 <img alt="Hero" style={{width: "100%"}} src="https://www.wearegoldcoast.com.au/wp-content/uploads/2020/12/feature.jpg"></img>
