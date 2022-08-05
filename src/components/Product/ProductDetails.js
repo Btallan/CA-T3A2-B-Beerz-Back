@@ -100,6 +100,7 @@ const ProductDetails = () => {
                     </div>
                 </Box>
             </Container>
+            <div className='footerSpacer'></div>
         </>
     )
 

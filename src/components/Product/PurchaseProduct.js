@@ -6,7 +6,7 @@ import { useGlobalState } from '../../utils/stateContext';
 import { useState } from 'react';
 
 // MATERIAL UI IMPORTS
-import {Button, Typography, Box, Container} from '@mui/material'
+import {Button, Typography, Box, Container, Grid} from '@mui/material'
 
 // Import Material UI Icons
 import { Add } from '@mui/icons-material';
@@ -87,38 +87,42 @@ const OrderProduct = ({product}) => {
         return nextID 
     }
 
-    
+    var total = quantity * product.price
 
     return (
         <>
-            <Container style={{textAlign: 'center'}}>
+            <Container style={{textAlign: 'center', width: '50%'}}>
 
                 <Box>
                     <Typography variant='h5' sx={{margin: '0 0 20px 0'}}>${product.price} ea</Typography>
                 </Box>
 
                 <form onSubmit={addOrder}>
+                <Grid container>
 
-                    <Box style={{display: 'flex', justifyContent: 'center'}}>
-
+                    <Grid item xs={12} sm={3}>
                         <Button name ="add" variant='contained' value={1} onClick={handleIncrement} sx={{margin: '10px', padding: '20px'}}>
-                            <Add />                 
+                                <Add />                 
                         </Button>
-
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
                         <Typography variant='body1' sx={{margin: '30px', padding: '20px'}}>{quantity}</Typography>
-
+                    </Grid>
+                    <Grid item xs={12} sm={3}>
                         <Button name="subtract" variant='contained' value={-1} onClick={handleDecrement} sx={{margin: '10px', padding: '20px'}}>
-                            <RemoveIcon />
+                                <RemoveIcon />
                         </Button>
+                    </Grid>
 
-                    </Box>
-
-                <Button type="submit" variant="contained" value='Order' sx={{margin: '20px 0'}}>Order</Button>
-
+                </Grid>
                 </form>
 
                 <Box>
-                    <Typography variant='h5' sx={{margin: '30px 0 0 0'}}>${quantity * product.price} total</Typography>
+                    <Typography variant='h5' sx={{margin: '30px 0 0 0'}}>${total.toFixed(2)} total</Typography>
+                </Box>
+
+                <Box>
+                    <Button type="submit" variant="contained" value='Order' sx={{margin: '20px 0'}}>Order</Button>
                 </Box>
             </Container>
         </>
