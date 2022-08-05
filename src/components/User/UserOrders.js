@@ -25,8 +25,8 @@ const UserOrders = () => {
     const isMatch = useMediaQuery(theme.breakpoints.down('sm'))
     
     return (       
-        <Container>
-            <Typography variant='h4' style={{textAlign: 'center', color: 'white'}}>My Orders</Typography>
+        <Container sx={{marginTop: '30px'}}>
+            <Typography variant='h4' style={{textAlign: 'center', color: 'white',marginBottom: '20px'}}>My Orders</Typography>
             {isMatch ?
                 <>
                     {userOrders.map(order =>

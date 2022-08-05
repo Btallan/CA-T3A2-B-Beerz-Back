@@ -12,8 +12,7 @@ const Products = () => {
 
     return (
         <>
-            <Container>
-                <div className="spacer"></div>
+            <Container sx={{marginTop: '80px', marginBottom: '80px'}}>
                 <Typography variant="h4" style={{textAlign: "center"}}>Our product line!</Typography>
                 <hr></hr>
                 <Box style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-around"}}>

@@ -4,8 +4,7 @@ import {Grid, Box, Container, Typography} from '@mui/material'
 const About = () => {
     return (
         <>
-            <div className='spacer'></div>
-            <Container>
+            <Container sx={{marginTop: '80px', marginBottom: '80px'}}>
                 <Box>
                     <Grid container>
                         <Grid item>

@@ -21,19 +21,24 @@ const UserEvents = () => {
     });
     
     // Checking to see whether the user has any currently active events
-    // var activeEvents = userBookings.some(booking => booking.status === true)
+    var activeEvents = userBookings.some(booking => booking.status === true)
+    console.log(activeEvents)
 
     return (
-        <Container>
-                    <div style={{margin: "50px 0"}}></div>
-                    <Typography variant='h4' style={{color: 'white', textAlign: 'center'}}>My Upcoming Events</Typography>
-                    <hr></hr>
-                    <Box style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-around"}}>
-                        {/* Only show bookings which have not been cancelled */}
-                        {userBookings.map(booking => 
-                        !booking.status ? null : <UserBooking key={booking.id} booking={booking}/>
-                        )}
-                    </Box>
+        <Container sx={{marginTop: '30px'}}>
+            {activeEvents ?
+            <>
+                <Typography variant='h4' style={{color: 'white', textAlign: 'center', marginBottom: '20px'}}>My Upcoming Events</Typography>
+                <Box style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-around"}}>
+                    {/* Only show bookings which have not been cancelled */}
+                    {userBookings.map(booking => 
+                    !booking.status ? null : <UserBooking key={booking.id} booking={booking}/>
+                    )}
+                </Box>
+            </>
+            :
+            null
+            }
         </Container>
     )
 }

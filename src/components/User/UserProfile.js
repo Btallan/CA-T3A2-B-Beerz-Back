@@ -36,8 +36,7 @@ const UserProfile = () => {
 
     return (
         <>
-                <div className='spacer'></div>
-                <Container>
+                <Container sx={{marginTop: '80px', marginBottom: '80px'}}>
                     <UserPersonalInfo />
                     <UserTags />
 
@@ -57,7 +56,6 @@ const UserProfile = () => {
                     }                 
 
                 </Container>
-            <div className='footerSpacer'></div>
 
         </>
     )

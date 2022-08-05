@@ -67,7 +67,7 @@ const ProductDetails = () => {
     return (
         <>
                 {/* <div style={{height: "20px"}}></div> */}
-            <Container className='productContainer'>
+            <Container sx={{marginTop: '80px', marginBottom: '80px'}}>
                 <Box>
                     <div className='productHeading'>
                         <Typography variant='h4' style={{textAlign: 'center'}}>{product.name}</Typography>

@@ -47,7 +47,7 @@ const UserTags = () => {
         <>
             <div style={{margin: "50px 0"}}></div>
             <Container> 
-                <Typography variant='h4' style={{textAlign: 'center', color: 'white'}}>User Flavour Tags</Typography>
+                <Typography variant='h4' style={{textAlign: 'center', color: 'white', marginBottom: '20px'}}>User Flavour Tags</Typography>
 
                 <Card style={{textAlign: 'center', padding: "20px 0"}}>                    
                     {tagList.map(tag =>  

@@ -28,8 +28,7 @@ const Event = () => {
 
     return (
         <>
-            <div className='spacer'></div>
-            <Container>
+            <Container sx={{marginTop: '80px', marginBottom: '80px'}}>
                 <Card>
                     <CardHeader title={selectedEvent.title}></CardHeader>
                     <CardMedia component='img' image={selectedEvent.eventIMG} sx={{maxHeight: "400px"}}></CardMedia>
@@ -43,7 +42,6 @@ const Event = () => {
                     </CardContent>
                 </Card>    
             </Container>
-            <div className='footerSpacer'></div>            
         </>
     )
 }
