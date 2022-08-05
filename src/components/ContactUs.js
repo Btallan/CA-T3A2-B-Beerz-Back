@@ -1,5 +1,5 @@
 import { useGlobalState } from "../utils/stateContext";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 // MATERIAL UI IMPORTS
 import {Button, TextField, Container, Card} from '@mui/material'
@@ -44,15 +44,15 @@ const ContactUs = () => {
 
     // Initial state 
     const [formData, setFormData] = useState(initialFormData)
-
+    var matterName = "Enquiry"
     if(objectName === 'contact'){
-        var matterName = 'Eqnuiry'
+        matterName = 'Eqnuiry'
     } else if(objectName === 'events'){
-        var matterName = 'Event'
+        matterName = 'Event'
     } else if(objectName === 'order'){
-        var matterName = 'Order'
+        matterName = 'Order'
     }else{
-        var matterName = 'Eqnuiry'
+        matterName = 'Eqnuiry'
     }
 
     if(objectID === 'contact'){
@@ -91,7 +91,7 @@ const ContactUs = () => {
             clearMessage()
         }
     }
-    useEffect(() => console.log(console.log(contactMessageList)), [contactMessageList])
+    // useEffect(() => console.log(console.log(contactMessageList)), [contactMessageList])
 
     function nextID(data){
         // first exclude the empty case

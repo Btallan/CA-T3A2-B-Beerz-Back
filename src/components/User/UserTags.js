@@ -48,17 +48,20 @@ const UserTags = () => {
             <div style={{margin: "50px 0"}}></div>
             <Container> 
                 <Typography variant='h4' style={{textAlign: 'center', color: 'white'}}>User Flavour Tags</Typography>
+
                 <Card style={{textAlign: 'center', padding: "20px 0"}}>                    
                     {tagList.map(tag =>  
                         loggedInUser.flavourTags.includes(tag.id)?
-                            <Button variant='outlined' key={tag.id} onClick={onClick} value={tag.id} style={{margin: '0 10px', padding: "20px 30px"}}>{tag.tag}</Button>
+                            <Button variant='contained' key={tag.id} onClick={onClick} value={tag.id} style={{margin: '10px', padding: '20px'}} className='tagButtons'>{tag.tag}</Button>
                             :    
-                            <Button variant='contained' key={tag.id} onClick={onClick} value={tag.id} style={{margin: '0 10px', padding: "20px 30px"}}>{tag.tag}</Button>
+                            <Button variant='outlined' key={tag.id} onClick={onClick} value={tag.id} style={{margin: '10px', padding: '20px'}} className='tagButtons'>{tag.tag}</Button>
                     )}       
                 </Card>
+                
             </Container> 
         </>
     )
 }
 
 export default UserTags;
+

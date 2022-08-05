@@ -36,7 +36,6 @@ body{
 /* ############################################################################################################################################################## */
 
 
-
 .footer{
     background-color: #1976d3;
     height: 75px;
@@ -110,6 +109,22 @@ body{
 .userInfo{
     background-color: aliceblue;
     padding: 50px;
+}
+
+.tagButtons{
+    width: 100px;
+}
+
+@media (max-width: 1024px){
+    .tagButtons{
+        width: 80px;
+    }
+}
+
+@media (max-width: 768px){
+    .tagButtons{
+        width: 150px;
+    }
 }
 
 

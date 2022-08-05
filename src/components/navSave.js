@@ -47,7 +47,7 @@ const Navigation = () =>{
                 
                 {isMatch ? 
                     <>
-                        <img alt='Logo' src={logo} />
+                        <Typography><LocalDrinkIcon/></Typography>
                         <NavDrawer />  
                     </>
                 :

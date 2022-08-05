@@ -30,7 +30,7 @@ const Reviews = ({product}) => {
         var totalScore = ratingArray.reduce((a,b) => a +b, 0)
         var average = 0
         if(numberReviews){
-            var average = totalScore / numberReviews
+            average = totalScore / numberReviews
         }
         console.log(average)
         
