@@ -22,6 +22,13 @@ const reducer = (state, action) => {
                 ageVerification: true
             }
         }
+        case "setToken": {
+            // update the loggedInUser value
+            return { 
+                ...state, 
+                authToken: action.data,
+            }
+        }
         case "setAgeVerification": {
             // update the loggedInUser value
             return { 

@@ -56,20 +56,21 @@ import {StateContext} from './utils/stateContext'
 import '../src/css/styles.css'
 
 // APIs
-import { getProducts } from './services/productsServices'
-import { getUsers } from './services/usersServices'
-import { getReviews } from './services/reviewsServices'
-import { getEvents } from './services/eventsServices'
-import { getBookings } from './services/bookingsServices'
-import { getTags } from './services/tagsServices'
-import { getOrders } from './services/ordersServices'
-import { getContacts } from './services/contactsServices'
+// import { getProducts } from './services/productsServices'
+// import { getUsers } from './services/usersServices'
+// import { getReviews } from './services/reviewsServices'
+// import { getEvents } from './services/eventsServices'
+// import { getBookings } from './services/bookingsServices'
+// import { getTags } from './services/tagsServices'
+// import { getOrders } from './services/ordersServices'
+// import { getContacts } from './services/contactsServices'
 
 const App = () => {
   // Set initial states
   const initialState = {
-    loggedInUser: "",
-    ageVerification: ""
+    loggedInUser: sessionStorage.getItem("username") || null,
+    ageVerification: "",
+    authToken: sessionStorage.getItem("token") || null
   }
 
   // Initialising the reducer
@@ -120,9 +121,6 @@ const App = () => {
       type: 'setContactMessageList',
       data: initialContactMessageList
     })
-    // console.log(initialBookingList)
-    // console.log(initialReviewList)
-
 
     // // Products API
     // getProducts()

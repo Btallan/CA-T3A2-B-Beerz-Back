@@ -4,6 +4,7 @@ import { useGlobalState } from '../utils/stateContext'
 
 // MATERIAL UI IMPORTS
 import {Button, TextField,Typography, Card, Container} from '@mui/material'
+import { signUp } from '../services/authServices'
 // import { Container } from '@mui/system'
 
 const SignUp = () => {
@@ -34,15 +35,30 @@ const SignUp = () => {
     // Handling the submission of the form
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log("Submit button clicked")
-        // console.log(formData)
+
+        // API
+        signUp(formData)
+            .then(user => {
+                sessionStorage.setItem("username", user.username)
+                sessionStorage.setItem("authToken", user.jwt)
+                dispatch({
+                    type: 'setLoggedInUser',
+                    data: user.username
+                })
+                dispatch({
+                    type: 'setToken',
+                    data: user.jwt
+                })
+            })
+
+        // Context
         dispatch({
             type: "signUserUp",
             data: formData
         })
+        
         setFormData(initialSignUpData)
         navigate('/')
-        // return true
     }
     
     // Handling the form data as the user enter keystrokes

@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom'
 
 // MATERIAL UI IMPORTS
 import {Button, TextField, Typography, Container, Card} from '@mui/material'
+import { signIn } from '../services/authServices'
 
 const LogIn = () => {
     const initialLogInData = {
@@ -28,10 +29,28 @@ const LogIn = () => {
         const user = userList.find(user => user.username === formData.username)
         if(!user){console.log("User not found")}    
         if(user.password === formData.password){
+            // // API
+            signIn(formData)
+            .then(user => {
+                    sessionStorage.setItem("username", user.username)
+                    sessionStorage.setItem("authToken", user.jwt)
+                    dispatch({
+                        type: 'setLoggedInUser',
+                        data: user.username
+                    })
+                    dispatch({
+                        type: 'setToken',
+                        data: user.jwt
+                    })
+                })
+
+            // Reducer
             dispatch({
                 type: "setLoggedInUser",
                 data: user
             })
+
+            // Navigate post login
             navigate('/')
         } else {
             console.log('Does not match')

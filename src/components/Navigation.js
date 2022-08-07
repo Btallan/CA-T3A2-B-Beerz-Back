@@ -32,9 +32,14 @@ const Navigation = () =>{
 
     const logout = (event) => {
         event.preventDefault()
+        sessionStorage.clear()
         dispatch({
             type: "setLoggedInUser",
-            data: ""
+            data: null
+        })
+        dispatch({
+            type: 'setToken',
+            data: null
         })
         navigate('/')
     }

@@ -5,3 +5,11 @@ export async function getReviews(){
     // console.log(response.data)
     return response.data
 }
+
+
+export async function createReview(data){
+    const response = await beerzAPI.post('/reviews', data)
+    // console.log(response.data)
+    return response.data
+}
+

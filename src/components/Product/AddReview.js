@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 // MATERIAL UI IMPORTS
 import {Button, TextField, Container, Card, Typography} from '@mui/material'
+// import { createReview } from '../../services/reviewsServices'
 
 const AddReview = ({id}) => {
     // Sets the initial values of the form, used also when form is clear/completed
@@ -66,6 +67,18 @@ const AddReview = ({id}) => {
             id: nextID(reviewList)
         }
         // console.log(review)
+        
+        // // API
+        // createReview(review)
+        //     .then(review => {
+        //         dispatch({
+        //             type: "addReview",
+        //             data: review
+        //         })
+        //    })
+        
+        
+        // Reducer
         dispatch({
             type: "addReview",
             data: review

@@ -48,7 +48,7 @@ const ProductDetails = () => {
     // console.log(url)
     // Slice the current url to get the last 8 characters, -8 to start from the end
     const lastChars = url.slice(-8)
-    console.log(lastChars)
+    // console.log(lastChars)
     // Initialise the variable to store the url boolean
     // var urlBoolean
 
