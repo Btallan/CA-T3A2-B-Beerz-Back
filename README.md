@@ -2,7 +2,7 @@
 
 ## Deployed Site:
 
-https://beerz.netlify.app/verification
+https://beerz.netlify.app/
 
 ### **Github Frontend Repo**
 
@@ -185,6 +185,11 @@ Users will have their own profiles, where they can upload and update their own c
 ## **Trello Board**
 
 The Kanban template was current selection with indication of priorities seen below from low-importance -> Must do -> Urgent - There is then also a “potential” listing and Front/Back end verification. There are set checklists and due date representations within each card allowing for a proper workflow and will be ticked / marked off when done. There are To-Do and Doing lists to clearly devise the work that is currently being and needed to be done.
+![Trello Board: System Activities](./files/Trello/card.JPG)
+![Trello Board: Date 07-07](./files/Trello/First_-_week_1_of_progerss.jpg)
+![Trello Board: Date 11-07](./files/Trello/11-07_trello_review.jpg)
+![Trello Board: Date 17-07](./files/Trello/17-07.png)
+![Trello Board: Date 17-07](./files/Trello/Start%20Part%20B.JPG)
 
 ![Trello Board: Date 04-08](./files/Trello/04-08-2022.jpg)
 ![Trello Board: Date 05-08](./files/Trello/04-08_part2.jpg)
