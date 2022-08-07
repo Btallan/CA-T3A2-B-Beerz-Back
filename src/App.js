@@ -55,6 +55,16 @@ import {StateContext} from './utils/stateContext'
 // Import CSS
 import '../src/css/styles.css'
 
+// APIs
+import { getProducts } from './services/productsServices'
+import { getUsers } from './services/usersServices'
+import { getReviews } from './services/reviewsServices'
+import { getEvents } from './services/eventsServices'
+import { getBookings } from './services/bookingsServices'
+import { getTags } from './services/tagsServices'
+import { getOrders } from './services/ordersServices'
+import { getContacts } from './services/contactsServices'
+
 const App = () => {
   // Set initial states
   const initialState = {
@@ -112,6 +122,89 @@ const App = () => {
     })
     // console.log(initialBookingList)
     // console.log(initialReviewList)
+
+
+    // // Products API
+    // getProducts()
+    //   .then(products => {
+    //     dispatch({
+    //       type: 'setProductList',
+    //       data: products
+    //     })
+    //   })
+    //   .catch(e => console.log(e))
+
+    // // Users API
+    // getUsers()
+    //   .then(users => {
+    //     dispatch({
+    //       type: 'setUserList',
+    //       data: users
+    //     })
+    //   })
+    //   .catch(e => console.log(e))
+
+    // // Reviews API
+    // getReviews()
+    //   .then(reviews => {
+    //     dispatch({
+    //       type: 'setReviewList',
+    //       data: reviews
+    //     })
+    //   })
+    //   .catch(e => console.log(e))
+
+    // // Events API
+    // getEvents()
+    //   .then(events => {
+    //     dispatch({
+    //       type: 'setEventList',
+    //       data: events
+    //     })
+    //   })
+    //   .catch(e => console.log(e))
+
+    // // Bookings API
+    // getBookings()
+    //   .then(bookings => {
+    //     dispatch({
+    //       type: 'setBookingList',
+    //       data: bookings
+    //     })
+    //   })
+    //   .catch(e => console.log(e))
+
+    // // Tags API
+    // getTags
+    //   .then(tags => {
+    //     dispatch({
+    //       type: 'setTagList',
+    //       data: tags
+    //     })
+    //   })
+    //   .catch(e => console.log(e))
+        
+    // // Orders API
+    // getOrders()
+    //   .then(orders => {
+    //     dispatch({
+    //       type: 'setOrderList',
+    //       data: orders
+    //     })
+    //   })
+    //   .catch(e => console.log(e))
+
+    // // Contact API
+    // getContacts
+    //   .then(contacts => {
+    //     dispatch({
+    //       type: 'setContactMessageList',
+    //       data: contacts
+    //     })
+    //   })
+    //   .catch(e => console.log(e))
+
+
   },[])
 
   return (

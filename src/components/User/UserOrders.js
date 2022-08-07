@@ -26,7 +26,7 @@ const UserOrders = () => {
     
     return (       
         <Container sx={{marginTop: '30px'}}>
-            <Typography variant='h4' style={{textAlign: 'center', color: 'white',marginBottom: '20px'}}>My Orders</Typography>
+            <Typography variant='h4' style={{textAlign: 'center', color: 'white', marginBottom: '20px'}}>My Orders</Typography>
             {isMatch ?
                 <>
                     {userOrders.map(order =>
